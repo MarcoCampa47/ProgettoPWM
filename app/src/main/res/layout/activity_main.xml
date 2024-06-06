@@ -48,7 +48,7 @@
         tools:barrierDirection="bottom" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
+        android:id="@+id/fragmentContainerActivityMain"
         android:name="com.example.railmanager.modules.loginModule.LoginFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

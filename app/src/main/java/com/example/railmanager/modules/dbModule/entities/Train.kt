@@ -21,14 +21,31 @@ indices = [Index(value = ["station_id"])]: Aggiunge un indice sulla colonna stat
             parentColumns = ["idState"],
             childColumns = ["state_id"],
             onDelete = ForeignKey.SET_NULL
+        ),
+        ForeignKey(
+            entity = Station::class,
+            parentColumns = ["idStation"],
+            childColumns = ["departure_station_id"],
+            onDelete = ForeignKey.CASCADE
+        ),
+        ForeignKey(
+            entity = Station::class,
+            parentColumns = ["idStation"],
+            childColumns = ["arrival_station_id"],
+            onDelete = ForeignKey.CASCADE
         )
     ],
-    indices = [Index(value = ["station_id"])])
+    indices = [
+        Index(value = ["state_id"]),
+        Index(value = ["departure_station_id"])
+    ]
+)
 data class Train (
     @PrimaryKey(autoGenerate = true) val idTrain : Long = 0,
-    @ColumnInfo(name = "train_name", defaultValue = "undefinedName") val train_name: String,
-    @ColumnInfo(name = "available_seats", defaultValue = "0") val available_seats : Int,
-    @ColumnInfo(name = "train_type", defaultValue = "Regionale") val train_type : String,
-    @ColumnInfo(name = "state_id", defaultValue = "UndefinedState") val state_id: Int
-
+    @ColumnInfo(name = "train_name", defaultValue = "undefinedName") val trainName: String,
+    @ColumnInfo(name = "available_seats", defaultValue = "0") val availableSeats : Int,
+    @ColumnInfo(name = "train_type", defaultValue = "Regionale") val trainType : String,
+    @ColumnInfo(name = "state_id", defaultValue = "UndefinedState") val stateId: Int,
+    @ColumnInfo(name = "departure_station_id") val departureStationID : Int,
+    @ColumnInfo(name = "arrival_station_id") val arrivalStationID : Int
     )

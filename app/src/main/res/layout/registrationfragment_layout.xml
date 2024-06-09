@@ -14,6 +14,7 @@
         android:layout_marginStart="22dp"
         android:layout_marginTop="21dp"
         android:text="Registrati"
+        android:layout_centerHorizontal="true"
         android:textColor="@color/black"
         android:textSize="26sp"
         android:textStyle="bold" />
@@ -184,14 +185,25 @@
         </TextView>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/registerButtonRegistrationFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="290dp"
+            android:layout_marginLeft="280dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/blu"
             android:text="Registrati" />
 
 
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/goBackImageButtonRegistrationFragment"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="21dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/back_image_button" />
 </RelativeLayout>

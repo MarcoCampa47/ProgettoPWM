@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.example.railmanager.R
@@ -23,6 +25,11 @@ class LoginFragment : Fragment() {
         val registerButton = viewWithfragment.findViewById<Button>(R.id.notRegisteredButtonLoginFragment)
         registerButton.setOnClickListener(){
             val loginFragmentManager = requireActivity().supportFragmentManager
+            // Pulisce tutto il back stack
+            if (loginFragmentManager.backStackEntryCount > 0) {
+                val first = loginFragmentManager.getBackStackEntryAt(0)
+                loginFragmentManager.popBackStack(first.id, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            }
             val loginFragmentTransaction = loginFragmentManager.commit {
                 setReorderingAllowed(true)
                 /*Aggiungo al backstack la transazione (il nome è a piacere), così da poter tornare alla schermata precedente col tasto indietro del sistema operativo*/
@@ -34,6 +41,7 @@ class LoginFragment : Fragment() {
                 replace<RegistrationFragment>(R.id.fragmentContainerActivityMain)
             }
         }
+
 
         return viewWithfragment;
     }

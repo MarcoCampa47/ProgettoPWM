@@ -46,6 +46,7 @@ dependencies {
 
     val fragment_version = "1.7.1"
     val nav_version = "2.7.7"
+    val room_version = "2.6.1"
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -65,6 +66,10 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
     implementation("androidx.navigation:navigation-compose:$nav_version")
     implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
+
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

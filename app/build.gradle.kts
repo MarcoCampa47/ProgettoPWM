@@ -43,6 +43,7 @@ android {
 
 dependencies {
     implementation(libs.androidx.annotation)
+    implementation(libs.androidx.room.common)
 
     val fragment_version = "1.7.1"
     val nav_version = "2.7.7"

@@ -50,6 +50,7 @@ dependencies {
     val room_version = "2.6.1"
     val lifecycle_version = "2.8.1"
     val arch_version = "2.2.0"
+    val retrofit_version = "2.11.0"
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -84,6 +85,14 @@ dependencies {
 
     // Saved state module for ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
+
+    //HTTP client android
+    implementation ("com.squareup.retrofit2:retrofit:$retrofit_version")
+    implementation ("com.squareup.retrofit2:converter-gson:$retrofit_version")
+
+
+    //GSON per i file JSON
+    implementation ("com.google.code.gson:gson:2.11.0")
 
 
     testImplementation(libs.junit)

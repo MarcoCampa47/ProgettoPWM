@@ -18,6 +18,7 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import androidx.fragment.app.viewModels
 import com.example.railmanager.R
 import com.example.railmanager.modules.loginModule.LoginFragment
 import java.text.SimpleDateFormat
@@ -33,6 +34,8 @@ import java.util.Locale
 
 
 class RegistrationFragment : Fragment() {
+
+    val registrationFragmentViewModel : RegistrationFragmentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

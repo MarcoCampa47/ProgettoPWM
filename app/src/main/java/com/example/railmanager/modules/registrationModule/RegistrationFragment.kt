@@ -27,6 +27,7 @@ import java.time.Period
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
+import java.time.format.FormatStyle
 import java.time.temporal.Temporal
 import java.util.Locale
 
@@ -69,13 +70,15 @@ class RegistrationFragment : Fragment() {
 
         val date : EditText  = view.findViewById(R.id.editTextDate)
 
+        date.showSoftInputOnFocus = false
         date.setOnClickListener {
             openCalendar()
 
         }
 
         view.findViewById<Button>(R.id.registerButtonRegistrationFragment).setOnClickListener {
-            isValidDate(date.text.toString())
+           val age = isValidDate(date.text.toString())
+            Log.d("TAG" , age.toString())
         }
 
     }
@@ -103,10 +106,18 @@ class RegistrationFragment : Fragment() {
 
     /*Metodo per verificare che la data di nascita rispetti i criteri prestabiliti*/
 
-    fun isValidDate(date : String) {
-       val selectedDate = LocalDate.parse(date , DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-        //val currentDate = LocalDate.now()
-        Log.d("TAG1" ,  selectedDate.toString())
+    fun isValidDate(date: String): Int? {
+        return try {
+            val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.getDefault())
+            val selectedDate = LocalDate.parse(date, formatter)
+            val currentDate = LocalDate.now()
+            val yearsBetween = Period.between(selectedDate, currentDate).years
+            Log.d("TAG1", "Selected Date: $selectedDate, Current Date: $currentDate, Years Between: $yearsBetween")
+            yearsBetween
+        } catch (e: DateTimeParseException) {
+            Log.d("TAG1", "Invalid date format")
+            null
+        }
     }
 
     /*Metodo per l'apertura di un calendario*/
@@ -125,7 +136,7 @@ class RegistrationFragment : Fragment() {
                 //Log.d("TAG" , selectedDate.toString())
 
                 /*Formatto la data selezionata nel calendario in */
-                val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+                val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy" , Locale.getDefault())
                 val formattedDate = selectedDate.format(formatter)
 
                 /*Setto il campo text della EditTExtView con la data presa e formattata dal calendario*/

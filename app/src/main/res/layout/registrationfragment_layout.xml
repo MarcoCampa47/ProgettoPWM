@@ -109,6 +109,8 @@
                 android:layout_margin="10dp"
                 android:hint="GG/MM/AAAA"
                 android:inputType="date"
+                android:clickable="true"
+                android:focusable="false"
                 android:textColorHint="@color/black"
                 android:textColor="@color/black"/>
 

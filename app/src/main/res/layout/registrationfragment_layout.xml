@@ -19,186 +19,224 @@
         android:textSize="26sp"
         android:textStyle="bold" />
 
-    <LinearLayout
-        android:id="@+id/textFieldsContainerFragment"
+    <ScrollView
+        android:id="@+id/scrollViewRegistrationFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:id="@+id/nameContainerFragment"
+            android:id="@+id/textFieldsContainerFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/radius_registration"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/nameImageViewFragment"
+            <LinearLayout
+                android:id="@+id/nameContainerFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/radius_registration"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/nameImageViewFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/user_icon" />
+
+                <EditText
+                    android:id="@+id/nameEditableTextFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="Nome"
+                    android:inputType="text"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/surnameContainerFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/radius_registration"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/surnameImageViewFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/user_icon" />
+
+                <EditText
+                    android:id="@+id/surnameEditableTextFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="Cognome"
+                    android:inputType="text"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/phoneNumberContainerFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/radius_registration"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/phoneNumberImageViewFragment"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/calendar_icon" />
+
+                <EditText
+                    android:id="@+id/editTextPhoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="GG/MM/AAAA"
+                    android:inputType="date"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/dateContainerFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/radius_registration"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/dateImageViewFragment"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/phone_icon" />
+
+                <EditText
+                    android:id="@+id/editTextDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="+390000000000"
+                    android:inputType="phone"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/emailContainerFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/radius_registration"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/emailImageViewFragment"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/email_icon" />
+
+                <EditText
+                    android:id="@+id/editTextMailFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="example@mail.com"
+                    android:inputType="text"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/passwordContainerFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/radius_registration"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/passwordImageViewFragment"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/password_icon" />
+
+                <EditText
+                    android:id="@+id/editTextPasswordFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="********"
+                    android:inputType="textPassword"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/requisitiPasswordTextViewFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/user_icon" />
-
-            <EditText
-                android:id="@+id/nameEditableTextFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:hint="Nome"
-                android:inputType="text"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/surnameContainerFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/radius_registration"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/surnameImageViewFragment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/user_icon" />
-
-            <EditText
-                android:id="@+id/surnameEditableTextFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:hint="Cognome"
-                android:inputType="text"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/dateContainerFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/radius_registration"
-            android:orientation="horizontal">
-
-
-            <ImageView
-                android:id="@+id/dateImageViewFragment"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/calendar_icon" />
-
-            <EditText
-                android:id="@+id/editTextDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:hint="GG/MM/AAAA"
-                android:inputType="date"
-                android:clickable="true"
-                android:focusable="false"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"/>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/emailContainerFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/radius_registration"
-            android:orientation="horizontal">
-
-
-            <ImageView
-                android:id="@+id/emailImageViewFragment"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/email_icon" />
-
-            <EditText
-                android:id="@+id/editTextMailFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:hint="example@mail.com"
-                android:inputType="text"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/passwordContainerFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/radius_registration"
-            android:orientation="horizontal">
-
-
-            <ImageView
-                android:id="@+id/passwordImageViewFragment"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/password_icon" />
-
-            <EditText
-                android:id="@+id/editTextPasswordFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:hint="********"
-                android:inputType="textPassword"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"/>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/requisitiPasswordTextViewFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="La password deve:\n- Contenere almeno 8 caratteri [A-Za-z]
+                android:layout_marginLeft="20dp"
+                android:text="La password deve:\n- Contenere almeno 8 caratteri [A-Za-z]
  \n- Contenere almeno una lettera maiuscola
  \n- Contenere almeno un numero [0-9]
 \n- Contenere almeno un carattere speciale [@#$%*]"
-            android:textSize="10sp">
+                android:textSize="10sp">
 
-        </TextView>
+            </TextView>
 
-        <Button
-            android:id="@+id/registerButtonRegistrationFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="280dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/blu"
-            android:text="Registrati" />
+            <Button
+                android:id="@+id/registerButtonRegistrationFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="280dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/blu"
+                android:text="Registrati" />
 
 
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <ImageButton
         android:id="@+id/goBackImageButtonRegistrationFragment"

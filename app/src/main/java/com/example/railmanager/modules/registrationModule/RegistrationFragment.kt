@@ -69,6 +69,11 @@ class RegistrationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val date : EditText  = view.findViewById(R.id.editTextDate)
+        val email : EditText = view.findViewById(R.id.editTextMailFragment)
+        val password : EditText = view.findViewById(R.id.editTextPasswordFragment)
+        val name : EditText = view.findViewById(R.id.nameEditableTextFragment)
+        val surname : EditText = view.findViewById(R.id.surnameEditableTextFragment)
+
 
         date.showSoftInputOnFocus = false
         date.setOnClickListener {
@@ -77,9 +82,17 @@ class RegistrationFragment : Fragment() {
         }
 
         view.findViewById<Button>(R.id.registerButtonRegistrationFragment).setOnClickListener {
-           val age = isValidDate(date.text.toString())
-            Log.d("TAG" , age.toString())
+            if(isValidNameAndSurname(name.text.toString() , surname.text.toString())) {
+                Toast.makeText(context, "Email valida", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                Toast.makeText(context, "Email non valida", Toast.LENGTH_SHORT).show()
+
+            }
+
         }
+
+
 
     }
 
@@ -120,6 +133,12 @@ class RegistrationFragment : Fragment() {
         }
     }
 
+    /*Metodo per verificare che il numero di telefono sia correttamente formattato*/
+    fun isValidPhoneNumber(phone : String) : Boolean{
+        val phoneRegex = Regex("^\\+[0-9]{1,3}[0-9]{10}\$")
+        return phoneRegex.matches(phone)
+    }
+
     /*Metodo per l'apertura di un calendario*/
     fun openCalendar() {
         val calendar = Calendar.getInstance(TimeZone.GMT_ZONE)
@@ -150,5 +169,7 @@ class RegistrationFragment : Fragment() {
 
 
     }
+
+
 
 }

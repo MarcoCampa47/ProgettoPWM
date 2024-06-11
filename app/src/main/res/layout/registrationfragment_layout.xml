@@ -94,7 +94,7 @@
 
 
             <ImageView
-                android:id="@+id/dataImageViewFragment"
+                android:id="@+id/dateImageViewFragment"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="10dp"
@@ -111,6 +111,8 @@
                 android:inputType="date"
                 android:textColorHint="@color/black"
                 android:textColor="@color/black"/>
+
+
         </LinearLayout>
 
         <LinearLayout

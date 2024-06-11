@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.railmanager.R
 
-class CustomAdapter(private val data : ArrayList<Int>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class TicketsAdapter(private val data : ArrayList<Int>) : RecyclerView.Adapter<TicketsAdapter.ViewHolder>() {
 
     class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
 

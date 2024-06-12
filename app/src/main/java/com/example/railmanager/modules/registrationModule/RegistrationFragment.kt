@@ -4,7 +4,6 @@ import android.app.DatePickerDialog
 import android.icu.util.Calendar
 import android.icu.util.TimeZone
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,23 +12,16 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.Toast
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.fragment.app.viewModels
 import com.example.railmanager.R
 import com.example.railmanager.modules.loginModule.LoginFragment
-import java.text.SimpleDateFormat
-import java.time.Clock
 import java.time.LocalDate
 import java.time.Period
-import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
-import java.time.format.FormatStyle
-import java.time.temporal.Temporal
 import java.util.Locale
 
 
@@ -37,6 +29,10 @@ class RegistrationFragment : Fragment() {
 
     val registrationFragmentViewModel : RegistrationFragmentViewModel by viewModels()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -71,11 +67,11 @@ class RegistrationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val date : EditText  = view.findViewById(R.id.editTextDate)
-        val email : EditText = view.findViewById(R.id.editTextMailFragment)
-        val password : EditText = view.findViewById(R.id.editTextPasswordFragment)
-        val name : EditText = view.findViewById(R.id.nameEditableTextFragment)
-        val surname : EditText = view.findViewById(R.id.surnameEditableTextFragment)
+        val date : EditText  = view.findViewById(R.id.dateEditableTextRegistrationFragment)
+        val email : EditText = view.findViewById(R.id.emailEditableTextRegistrationFragment)
+        val password : EditText = view.findViewById(R.id.passwordEditableTextRegistrationFragment)
+        val name : EditText = view.findViewById(R.id.nameEditableTextRegistrationFragment)
+        val surname : EditText = view.findViewById(R.id.surnameEditableTextRegistrationFragment)
 
 
         date.showSoftInputOnFocus = false
@@ -162,7 +158,7 @@ class RegistrationFragment : Fragment() {
                 val formattedDate = selectedDate.format(formatter)
 
                 /*Setto il campo text della EditTExtView con la data presa e formattata dal calendario*/
-                val date : EditText  = requireView().findViewById(R.id.editTextDate)
+                val date : EditText  = requireView().findViewById(R.id.dateEditableTextRegistrationFragment)
                 date.setText(formattedDate)
                 //Log.d("TAG" , date.text.toString())
 

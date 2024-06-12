@@ -1,227 +1,332 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relativeLayoutRegistrationForm"
+    android:id="@+id/constraintLayoutRegistrationFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <TextView
-        android:id="@+id/registrationTextViewFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="21dp"
-        android:text="Registrati"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
-        android:textSize="26sp"
-        android:textStyle="bold" />
 
     <ScrollView
         android:id="@+id/scrollViewRegistrationFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayoutRegistrationFragment"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayoutRegistrationFragment">
 
-        <LinearLayout
-            android:id="@+id/textFieldsContainerFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="80dp"
-            android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/nameContainerFragment"
-                android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/itemContainerRegistrationFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <ImageButton
+                android:id="@+id/goBackImageButtonRegistrationFragment"
+                style="@android:style/Widget.ImageButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toStartOf="@+id/registrationTextViewRegistrationFragment"
+                app:layout_constraintStart_toStartOf="@+id/itemContainerRegistrationFragment"
+                app:layout_constraintTop_toTopOf="@+id/itemContainerRegistrationFragment"
+                app:srcCompat="@drawable/back_image_button" />
+
+            <TextView
+                android:id="@+id/registrationTextViewRegistrationFragment"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="76dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="152dp"
+                android:text="Registrati"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/nameContainerRegistrationFragment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/goBackImageButtonRegistrationFragment"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/nameContainerRegistrationFragment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/radius_registration"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/itemContainerRegistrationFragment"
+                app:layout_constraintStart_toStartOf="@+id/itemContainerRegistrationFragment"
+                app:layout_constraintTop_toBottomOf="@+id/registrationTextViewRegistrationFragment">
+
 
                 <ImageView
-                    android:id="@+id/nameImageViewFragment"
+                    android:id="@+id/nameImageViewRegistrationFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:src="@drawable/user_icon" />
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/user_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/nameContainerRegistrationFragment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/nameContainerRegistrationFragment" />
 
                 <EditText
-                    android:id="@+id/nameEditableTextFragment"
+                    android:id="@+id/nameEditableTextRegistrationFragment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:hint="Nome"
                     android:inputType="text"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/black"
-                    android:textColor="@color/black"/>
+                    app:layout_constraintBottom_toBottomOf="@+id/nameContainerRegistrationFragment"
+                    app:layout_constraintStart_toEndOf="@+id/nameImageViewRegistrationFragment"
+                    app:layout_constraintTop_toTopOf="@+id/nameContainerRegistrationFragment" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/surnameContainerFragment"
-                android:layout_width="match_parent"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/surnameContainerRegistrationFragment"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="30dp"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/radius_registration"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/itemContainerRegistrationFragment"
+                app:layout_constraintStart_toStartOf="@+id/itemContainerRegistrationFragment"
+                app:layout_constraintTop_toBottomOf="@+id/nameContainerRegistrationFragment">
+
 
                 <ImageView
-                    android:id="@+id/surnameImageViewFragment"
+                    android:id="@+id/surnameImageViewRegistrationFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/user_icon"
+                    app:layout_constraintBottom_toBottomOf="@id/surnameContainerRegistrationFragment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/surnameContainerRegistrationFragment"/>
+
+                <EditText
+                    android:id="@+id/surnameEditableTextRegistrationFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Cognome"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/surnameContainerRegistrationFragment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/surnameContainerRegistrationFragment" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dateContainerRegistrationFragment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/radius_registration"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/itemContainerRegistrationFragment"
+                app:layout_constraintStart_toStartOf="@+id/itemContainerRegistrationFragment"
+                app:layout_constraintTop_toBottomOf="@+id/surnameContainerRegistrationFragment">
+
+
+                <ImageView
+                    android:id="@+id/dateImageViewRegistrationFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/calendar_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/dateContainerRegistrationFragment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/dateContainerRegistrationFragment"/>
+
+                <EditText
+                    android:id="@+id/dateEditableTextRegistrationFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:hint="GG/MM/AAAA"
+                    android:inputType="date"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/dateContainerRegistrationFragment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/dateContainerRegistrationFragment"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/phoneNumberContainerRegistrationFragment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/radius_registration"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/itemContainerRegistrationFragment"
+                app:layout_constraintStart_toStartOf="@+id/itemContainerRegistrationFragment"
+                app:layout_constraintTop_toBottomOf="@+id/dateContainerRegistrationFragment">
+
+
+                <ImageView
+                    android:id="@+id/phoneNumberImageViewRegistrationFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/phone_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/phoneNumberContainerRegistrationFragment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/phoneNumberContainerRegistrationFragment"/>
+
+                <EditText
+                    android:id="@+id/phoneNumberEditableTextRegistrationFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="+390000000000"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/phoneNumberContainerRegistrationFragment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/phoneNumberContainerRegistrationFragment"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/emailContainerRegistrationFragment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/radius_registration"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/itemContainerRegistrationFragment"
+                app:layout_constraintStart_toStartOf="@+id/itemContainerRegistrationFragment"
+                app:layout_constraintTop_toBottomOf="@+id/phoneNumberContainerRegistrationFragment">
+
+
+                <ImageView
+                    android:id="@+id/emailImageViewRegistrationFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:src="@drawable/user_icon" />
+                    android:background="@drawable/email_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/emailContainerRegistrationFragment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/emailContainerRegistrationFragment" />
 
                 <EditText
-                    android:id="@+id/surnameEditableTextFragment"
+                    android:id="@+id/emailEditableTextRegistrationFragment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:hint="Cognome"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="email@example.com"
                     android:inputType="text"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/black"
-                    android:textColor="@color/black"/>
+                    app:layout_constraintBottom_toBottomOf="@+id/emailContainerRegistrationFragment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/emailContainerRegistrationFragment"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/phoneNumberContainerFragment"
-                android:layout_width="match_parent"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/passwordContainerRegistrationFragment"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="30dp"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/radius_registration"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/itemContainerRegistrationFragment"
+                app:layout_constraintStart_toStartOf="@+id/itemContainerRegistrationFragment"
+                app:layout_constraintTop_toBottomOf="@+id/emailContainerRegistrationFragment">
 
 
                 <ImageView
-                    android:id="@+id/phoneNumberImageViewFragment"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:id="@+id/passwordImageViewRegistrationFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:src="@drawable/calendar_icon" />
+                    android:background="@drawable/password_icon"
+                    app:layout_constraintBottom_toBottomOf="+@id/passwordContainerRegistrationFragment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/passwordContainerRegistrationFragment"/>
 
                 <EditText
-                    android:id="@+id/editTextPhoneNumber"
+                    android:id="@+id/passwordEditableTextRegistrationFragment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:hint="GG/MM/AAAA"
-                    android:inputType="date"
-                    android:clickable="true"
-                    android:focusable="false"
-                    android:textColorHint="@color/black"
-                    android:textColor="@color/black"/>
-
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/dateContainerFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/radius_registration"
-                android:orientation="horizontal">
-
-
-                <ImageView
-                    android:id="@+id/dateImageViewFragment"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:src="@drawable/phone_icon" />
-
-                <EditText
-                    android:id="@+id/editTextDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:hint="+390000000000"
-                    android:inputType="phone"
-                    android:textColorHint="@color/black"
-                    android:textColor="@color/black"/>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/emailContainerFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/radius_registration"
-                android:orientation="horizontal">
-
-
-                <ImageView
-                    android:id="@+id/emailImageViewFragment"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:src="@drawable/email_icon" />
-
-                <EditText
-                    android:id="@+id/editTextMailFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:hint="example@mail.com"
-                    android:inputType="text"
-                    android:textColorHint="@color/black"
-                    android:textColor="@color/black"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/passwordContainerFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/radius_registration"
-                android:orientation="horizontal">
-
-
-                <ImageView
-                    android:id="@+id/passwordImageViewFragment"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:src="@drawable/password_icon" />
-
-                <EditText
-                    android:id="@+id/editTextPasswordFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
                     android:hint="********"
-                    android:inputType="textPassword"
+                    android:inputType="text"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/black"
-                    android:textColor="@color/black"/>
-            </LinearLayout>
+                    app:layout_constraintBottom_toBottomOf="@+id/passwordContainerRegistrationFragment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toTopOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/passwordContainerRegistrationFragment"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/requisitiPasswordTextViewFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
                 android:text="La password deve:\n- Contenere almeno 8 caratteri [A-Za-z]
  \n- Contenere almeno una lettera maiuscola
  \n- Contenere almeno un numero [0-9]
 \n- Contenere almeno un carattere speciale [@#$%*]"
-                android:textSize="10sp">
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/passwordContainerRegistrationFragment">
 
             </TextView>
 
@@ -229,23 +334,16 @@
                 android:id="@+id/registerButtonRegistrationFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="280dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="60dp"
                 android:backgroundTint="@color/blu"
-                android:text="Registrati" />
+                android:text="Registrati"
+                app:layout_constraintStart_toEndOf="@+id/requisitiPasswordTextViewFragment"
+                app:layout_constraintTop_toBottomOf="@+id/passwordContainerRegistrationFragment" />
 
 
-        </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
-    <ImageButton
-        android:id="@+id/goBackImageButtonRegistrationFragment"
-        style="@android:style/Widget.ImageButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="21dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/back_image_button" />
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

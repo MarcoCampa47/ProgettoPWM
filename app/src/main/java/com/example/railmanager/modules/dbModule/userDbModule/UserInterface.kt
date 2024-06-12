@@ -1,4 +1,5 @@
-package com.example.railmanager.modules.dbModule
+package com.example.railmanager.modules.dbModule.userDbModule
+import android.content.Context
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -11,4 +12,7 @@ interface UserInterface {
 
     @POST("railmanager/user/checkEmail")
     fun checkIfUserExists(@Body email : String) : Call<User>
+
+    @POST("railmanager/user/register")
+    fun registerUser(@Body user : User) : Call<User>
 }

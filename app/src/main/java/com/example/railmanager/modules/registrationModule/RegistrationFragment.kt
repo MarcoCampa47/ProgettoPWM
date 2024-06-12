@@ -42,7 +42,6 @@ class RegistrationFragment : Fragment() {
 
 
 
-
         goBackButton.setOnClickListener(){
             val registerFragmentManager = requireActivity().supportFragmentManager
 
@@ -72,6 +71,7 @@ class RegistrationFragment : Fragment() {
         val password : EditText = view.findViewById(R.id.passwordEditableTextRegistrationFragment)
         val name : EditText = view.findViewById(R.id.nameEditableTextRegistrationFragment)
         val surname : EditText = view.findViewById(R.id.surnameEditableTextRegistrationFragment)
+        val phoneNumber : EditText = view.findViewById(R.id.phoneNumberEditableTextRegistrationFragment)
 
 
         date.showSoftInputOnFocus = false
@@ -81,61 +81,18 @@ class RegistrationFragment : Fragment() {
         }
 
         view.findViewById<Button>(R.id.registerButtonRegistrationFragment).setOnClickListener {
-            if(isValidNameAndSurname(name.text.toString() , surname.text.toString())) {
-                Toast.makeText(context, "Email valida", Toast.LENGTH_SHORT).show()
-            }
-            else{
-                Toast.makeText(context, "Email non valida", Toast.LENGTH_SHORT).show()
-            }
-
+            this.context?.let { it1 -> registrationFragmentViewModel.checkAllFields(
+                it1, name.text.toString(), surname.text.toString(),
+                email.text.toString(), password.text.toString(),
+                date.text.toString(),
+                phoneNumber.text.toString()
+            )}
         }
 
 
 
     }
 
-
-    /*Metodo che verifica la corretta formattazione dell'indirizzo email*/
-    fun isValidMail(email : String) : Boolean{
-        val emailRegex = Regex("^[a-zA-Z][a-zA-Z0-9._-]*@(gmail\\.com|outlook\\.com|yahoo\\.com|icloud\\.com|virgilio\\.it|libero\\.it|aruba\\.it|protonmail\\.com|namirial\\.com)\$")
-
-        return emailRegex.matches(email)
-    }
-
-    /*Verifica la corretta formattazione della password*/
-    fun isValidPassword(password : String) : Boolean{
-        val passwordRegex = Regex("^(?=.*[A-Z])(?=.*[!;#%&()*?@\\[\\]\\\\^\\-_{}])[A-Za-z0-9!;#%&()*?@\\[\\]\\\\^\\-_{}]{8,}$")
-        return passwordRegex.matches(password)
-    }
-
-    /*Verifica la corretta formattazione del nome e del cognome*/
-    fun isValidNameAndSurname(name : String , surname: String) : Boolean{
-        val nameAndSurnameRegex = Regex("^[a-zA-Z]{2,}\$")
-
-        return nameAndSurnameRegex.matches(name) && nameAndSurnameRegex.matches(surname)
-    }
-
-    /*Metodo per verificare che la data di nascita rispetti i criteri prestabiliti*/
-
-    fun isValidDate(date: String): Int? {
-        return try {
-            val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.getDefault())
-            val selectedDate = LocalDate.parse(date, formatter)
-            val currentDate = LocalDate.now()
-            val yearsBetween = Period.between(selectedDate, currentDate).years
-            Log.d("TAG1", "Selected Date: $selectedDate, Current Date: $currentDate, Years Between: $yearsBetween")
-            yearsBetween
-        } catch (e: DateTimeParseException) {
-            Log.d("TAG1", "Invalid date format")
-            null
-        }
-    }
-
-    /*Metodo per verificare che il numero di telefono sia correttamente formattato*/
-    fun isValidPhoneNumber(phone : String) : Boolean{
-        val phoneRegex = Regex("^\\+[0-9]{1,3}[0-9]{10}\$")
-        return phoneRegex.matches(phone)
-    }
 
     /*Metodo per l'apertura di un calendario*/
     fun openCalendar() {

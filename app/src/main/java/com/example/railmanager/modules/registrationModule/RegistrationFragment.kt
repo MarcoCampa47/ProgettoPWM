@@ -86,7 +86,6 @@ class RegistrationFragment : Fragment() {
             }
             else{
                 Toast.makeText(context, "Email non valida", Toast.LENGTH_SHORT).show()
-
             }
 
         }

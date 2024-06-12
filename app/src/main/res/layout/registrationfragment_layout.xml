@@ -11,16 +11,17 @@
     <ScrollView
         android:id="@+id/scrollViewRegistrationFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayoutRegistrationFragment"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayoutRegistrationFragment">
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/itemContainerRegistrationFragment"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
 
             <ImageButton
                 android:id="@+id/goBackImageButtonRegistrationFragment"
@@ -30,6 +31,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="15dp"
                 android:adjustViewBounds="true"
+                android:contentDescription="@string/action_sign_in"
                 android:scaleType="fitCenter"
                 app:layout_constraintEnd_toStartOf="@+id/registrationTextViewRegistrationFragment"
                 app:layout_constraintStart_toStartOf="@+id/itemContainerRegistrationFragment"
@@ -51,9 +53,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/nameContainerRegistrationFragment"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/goBackImageButtonRegistrationFragment"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </TextView>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/nameContainerRegistrationFragment"
@@ -72,27 +72,28 @@
                     android:id="@+id/nameImageViewRegistrationFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
                     android:background="@drawable/user_icon"
                     app:layout_constraintBottom_toBottomOf="@+id/nameContainerRegistrationFragment"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintStart_toTopOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/nameContainerRegistrationFragment" />
 
                 <EditText
                     android:id="@+id/nameEditableTextRegistrationFragment"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:hint="Nome"
                     android:inputType="text"
+                    android:minHeight="48dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
                     app:layout_constraintBottom_toBottomOf="@+id/nameContainerRegistrationFragment"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/nameImageViewRegistrationFragment"
                     app:layout_constraintTop_toTopOf="@+id/nameContainerRegistrationFragment" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -114,29 +115,29 @@
                     android:id="@+id/surnameImageViewRegistrationFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
                     android:background="@drawable/user_icon"
                     app:layout_constraintBottom_toBottomOf="@id/surnameContainerRegistrationFragment"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintStart_toTopOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/surnameContainerRegistrationFragment"/>
+                    app:layout_constraintTop_toTopOf="@id/surnameContainerRegistrationFragment" />
 
                 <EditText
                     android:id="@+id/surnameEditableTextRegistrationFragment"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:hint="Cognome"
                     android:inputType="text"
+                    android:minHeight="48dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
                     app:layout_constraintBottom_toBottomOf="@+id/surnameContainerRegistrationFragment"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintStart_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/surnameImageViewRegistrationFragment"
                     app:layout_constraintTop_toTopOf="@+id/surnameContainerRegistrationFragment" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -157,18 +158,17 @@
                     android:id="@+id/dateImageViewRegistrationFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
                     android:background="@drawable/calendar_icon"
                     app:layout_constraintBottom_toBottomOf="@+id/dateContainerRegistrationFragment"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintStart_toTopOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/dateContainerRegistrationFragment"/>
+                    app:layout_constraintTop_toTopOf="@+id/dateContainerRegistrationFragment" />
 
                 <EditText
                     android:id="@+id/dateEditableTextRegistrationFragment"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="10dp"
@@ -177,12 +177,13 @@
                     android:focusable="false"
                     android:hint="GG/MM/AAAA"
                     android:inputType="date"
+                    android:minHeight="48dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
                     app:layout_constraintBottom_toBottomOf="@+id/dateContainerRegistrationFragment"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintStart_toTopOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/dateContainerRegistrationFragment"/>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/dateImageViewRegistrationFragment"
+                    app:layout_constraintTop_toTopOf="@+id/dateContainerRegistrationFragment" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -202,30 +203,30 @@
                     android:id="@+id/phoneNumberImageViewRegistrationFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
                     android:background="@drawable/phone_icon"
                     app:layout_constraintBottom_toBottomOf="@+id/phoneNumberContainerRegistrationFragment"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintStart_toTopOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/phoneNumberContainerRegistrationFragment"/>
+                    app:layout_constraintTop_toTopOf="@+id/phoneNumberContainerRegistrationFragment" />
 
                 <EditText
                     android:id="@+id/phoneNumberEditableTextRegistrationFragment"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:hint="+390000000000"
                     android:inputType="text"
+                    android:minHeight="48dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
                     app:layout_constraintBottom_toBottomOf="@+id/phoneNumberContainerRegistrationFragment"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintStart_toTopOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/phoneNumberContainerRegistrationFragment"/>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/phoneNumberImageViewRegistrationFragment"
+                    app:layout_constraintTop_toTopOf="@+id/phoneNumberContainerRegistrationFragment" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -251,24 +252,24 @@
                     android:background="@drawable/email_icon"
                     app:layout_constraintBottom_toBottomOf="@+id/emailContainerRegistrationFragment"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintStart_toTopOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/emailContainerRegistrationFragment" />
 
                 <EditText
                     android:id="@+id/emailEditableTextRegistrationFragment"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:hint="email@example.com"
                     android:inputType="text"
+                    android:minHeight="48dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
                     app:layout_constraintBottom_toBottomOf="@+id/emailContainerRegistrationFragment"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintStart_toTopOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/emailContainerRegistrationFragment"/>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/emailImageViewRegistrationFragment"
+                    app:layout_constraintTop_toTopOf="@+id/emailContainerRegistrationFragment" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -292,57 +293,56 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/password_icon"
-                    app:layout_constraintBottom_toBottomOf="+@id/passwordContainerRegistrationFragment"
+                    app:layout_constraintBottom_toBottomOf="@+id/passwordContainerRegistrationFragment"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintStart_toTopOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/passwordContainerRegistrationFragment"/>
+                    app:layout_constraintTop_toTopOf="@+id/passwordContainerRegistrationFragment" />
 
                 <EditText
                     android:id="@+id/passwordEditableTextRegistrationFragment"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:hint="********"
                     android:inputType="text"
+                    android:minHeight="48dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
                     app:layout_constraintBottom_toBottomOf="@+id/passwordContainerRegistrationFragment"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintStart_toTopOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/passwordContainerRegistrationFragment"/>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/passwordImageViewRegistrationFragment"
+                    app:layout_constraintTop_toTopOf="@+id/passwordContainerRegistrationFragment" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/requisitiPasswordTextViewFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
                 android:text="La password deve:\n- Contenere almeno 8 caratteri [A-Za-z]
  \n- Contenere almeno una lettera maiuscola
  \n- Contenere almeno un numero [0-9]
 \n- Contenere almeno un carattere speciale [@#$%*]"
                 android:textSize="10sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/passwordContainerRegistrationFragment">
-
-            </TextView>
+                app:layout_constraintTop_toBottomOf="@+id/passwordContainerRegistrationFragment" />
 
             <Button
                 android:id="@+id/registerButtonRegistrationFragment"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
                 android:backgroundTint="@color/blu"
                 android:text="Registrati"
-                app:layout_constraintStart_toEndOf="@+id/requisitiPasswordTextViewFragment"
-                app:layout_constraintTop_toBottomOf="@+id/passwordContainerRegistrationFragment" />
-
-
-
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/requisitiPasswordTextViewFragment" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

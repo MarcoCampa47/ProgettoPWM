@@ -82,10 +82,10 @@ class RegistrationFragment : Fragment() {
 
         view.findViewById<Button>(R.id.registerButtonRegistrationFragment).setOnClickListener {
             this.context?.let { it1 -> registrationFragmentViewModel.checkAllFields(
-                it1, name.text.toString(), surname.text.toString(),
-                email.text.toString(), password.text.toString(),
+                it1, name.text.toString().trim(), surname.text.toString().trim(),
+                email.text.toString().trim(), password.text.toString().trim(),
                 date.text.toString(),
-                phoneNumber.text.toString()
+                phoneNumber.text.toString().trim()
             )}
         }
 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/logged_nav_graph"
+    app:startDestination="@id/ticketsActivity">
+    <activity
+        android:id="@+id/ticketsActivity"
+        android:name="com.example.railmanager.modules.ticketsModule.TicketsActivity"
+        android:label="activity_tickets"
+        tools:layout="@layout/activity_tickets" />
+    <fragment
+        android:id="@+id/trainRoutesFragment"
+        android:name="com.example.railmanager.modules.ticketsModule.TrainRoutesFragment"
+        android:label="fragment_train_routes"
+        tools:layout="@layout/fragment_train_routes" >
+        <action
+            android:id="@+id/action_trainRoutesFragment_to_ticketsPaymentFragment"
+            app:destination="@id/ticketsPaymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ticketsPaymentFragment"
+        android:name="com.example.railmanager.modules.ticketsModule.TicketsPaymentFragment"
+        android:label="fragment_tickets_payment"
+        tools:layout="@layout/fragment_tickets_payment" />
+</navigation>

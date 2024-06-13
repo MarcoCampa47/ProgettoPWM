@@ -7,13 +7,59 @@
     android:layout_height="match_parent"
     tools:context=".modules.ticketsModule.TicketsActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
-        android:name="com.example.railmanager.modules.ticketsModule.TicketsPaymentFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomMenuActivityTickets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_bar_activity_tickets"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <ImageView
+            android:id="@+id/profileSectionImageViewActivityTickets"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/bottomMenuActivityTickets"
+            app:layout_constraintStart_toStartOf="@+id/bottomMenuActivityTickets"
+            app:layout_constraintTop_toTopOf="@+id/bottomMenuActivityTickets"
+            app:srcCompat="@drawable/user_icon" />
+
+
+        <ImageView
+            android:id="@+id/homeImageViewActivityTickets"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="135dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/bottomMenuActivityTickets"
+            app:layout_constraintStart_toEndOf="@+id/profileSectionImageViewActivityTickets"
+            app:layout_constraintTop_toTopOf="@+id/bottomMenuActivityTickets"
+
+            app:srcCompat="@drawable/home_icon" />
+
+        <ImageView
+            android:id="@+id/ticketImageViewActivityTickets"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="20dp"
+            app:srcCompat="@drawable/ticket_icon"
+            tools:layout_editor_absoluteX="290dp"
+            app:layout_constraintTop_toTopOf="@+id/bottomMenuActivityTickets"
+            app:layout_constraintBottom_toBottomOf="@+id/bottomMenuActivityTickets"
+
+            app:layout_constraintEnd_toEndOf="@+id/bottomMenuActivityTickets"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    
+
 </androidx.constraintlayout.widget.ConstraintLayout>

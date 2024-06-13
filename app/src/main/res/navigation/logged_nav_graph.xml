@@ -3,12 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/logged_nav_graph"
-    app:startDestination="@id/ticketsActivity">
-    <activity
-        android:id="@+id/ticketsActivity"
-        android:name="com.example.railmanager.modules.ticketsModule.TicketsActivity"
-        android:label="activity_tickets"
-        tools:layout="@layout/activity_tickets" />
+    app:startDestination="@id/trainRoutesFragment">
     <fragment
         android:id="@+id/trainRoutesFragment"
         android:name="com.example.railmanager.modules.ticketsModule.TrainRoutesFragment"

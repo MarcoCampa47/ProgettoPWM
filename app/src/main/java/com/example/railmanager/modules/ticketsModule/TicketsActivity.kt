@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.FragmentManager
 import com.example.railmanager.R
 
 class TicketsActivity : AppCompatActivity() {
@@ -18,4 +19,14 @@ class TicketsActivity : AppCompatActivity() {
             insets
         }
     }
+
+
+    /* Se lascio l'app in background, ritorna all'activity TicketsActivity */
+    override fun onResume() {
+        super.onResume()
+        if (!isTaskRoot) {
+            finish()
+        }
+    }
 }
+

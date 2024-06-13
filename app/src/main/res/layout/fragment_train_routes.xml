@@ -89,6 +89,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:hint="Andata"
+                android:clickable="true"
+                android:focusable="false"
                 android:inputType="date"
                 android:textColorHint="@color/black"
                 android:textColor="@color/black"/>
@@ -118,6 +120,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:hint="Ritorno"
+                android:clickable="true"
+                android:focusable="false"
                 android:inputType="date"
                 android:textColorHint="@color/black"
                 android:textColor="@color/black"/>

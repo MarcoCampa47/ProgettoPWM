@@ -30,7 +30,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-
         <ImageView
             android:id="@+id/profileSectionImageViewActivityTickets"
             android:layout_width="40dp"
@@ -43,18 +42,16 @@
             app:layout_constraintTop_toTopOf="@+id/bottomMenuActivityTickets"
             app:srcCompat="@drawable/user_icon" />
 
-
         <ImageView
             android:id="@+id/homeImageViewActivityTickets"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginStart="135dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toBottomOf="@+id/bottomMenuActivityTickets"
-            app:layout_constraintStart_toEndOf="@+id/profileSectionImageViewActivityTickets"
             app:layout_constraintTop_toTopOf="@+id/bottomMenuActivityTickets"
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/home_icon" />
 
         <ImageView
@@ -68,9 +65,7 @@
             tools:layout_editor_absoluteX="290dp"
             app:layout_constraintTop_toTopOf="@+id/bottomMenuActivityTickets"
             app:layout_constraintBottom_toBottomOf="@+id/bottomMenuActivityTickets"
-
             app:layout_constraintEnd_toEndOf="@+id/bottomMenuActivityTickets"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

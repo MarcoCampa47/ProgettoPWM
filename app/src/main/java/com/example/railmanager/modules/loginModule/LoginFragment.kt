@@ -53,6 +53,7 @@ class LoginFragment : Fragment() {
             this.context?.let { it1 -> loginFragmentViewModel.login(it1, emailEditText.text.toString().trim(), passwordEditText.text.toString().trim() ) }
         }
 
+
         return viewWithfragment;
     }
 

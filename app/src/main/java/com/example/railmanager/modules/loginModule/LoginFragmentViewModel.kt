@@ -1,13 +1,20 @@
 package com.example.railmanager.modules.loginModule
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
+import com.example.railmanager.MainActivity
 import com.example.railmanager.modules.dbModule.userDbModule.CheckUserCallback
 import com.example.railmanager.modules.dbModule.userDbModule.UserMethods
+import com.example.railmanager.modules.ticketsModule.TicketsActivity
 
 class LoginFragmentViewModel() : ViewModel() {
+
 
     fun login(context: Context, email: String, password: String) {
 
@@ -36,7 +43,9 @@ class LoginFragmentViewModel() : ViewModel() {
                     userMethods.checkIfPasswordIsCorrected(context, email, password, object : CheckUserCallback {
                         override fun onResult(exists: Boolean) {
                             if (exists) {
-                                showSimpleAlertDialog(context,"Sei dentro")
+                                val intent = Intent(context, TicketsActivity::class.java)
+                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                context.startActivity(intent)
                             }
                             else{
                                 showSimpleAlertDialog(context,"Verifica che la password sia inserita correttamente e riprova")

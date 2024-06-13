@@ -5,15 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import androidx.fragment.app.viewModels
 import com.example.railmanager.R
 import com.example.railmanager.modules.registrationModule.RegistrationFragment
 
 class LoginFragment : Fragment() {
+
+    val loginFragmentViewModel : LoginFragmentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,6 +46,12 @@ class LoginFragment : Fragment() {
             }
         }
 
+        val emailEditText = viewWithfragment.findViewById<EditText>(R.id.emailEditTextLoginFragment)
+        val passwordEditText = viewWithfragment.findViewById<EditText>(R.id.passwordEditTextLoginFragment)
+        val loginButton = viewWithfragment.findViewById<Button>(R.id.loginButtonLoginFragment)
+        loginButton.setOnClickListener(){
+            this.context?.let { it1 -> loginFragmentViewModel.login(it1, emailEditText.text.toString().trim(), passwordEditText.text.toString().trim() ) }
+        }
 
         return viewWithfragment;
     }

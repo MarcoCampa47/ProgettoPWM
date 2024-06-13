@@ -73,6 +73,7 @@ class RegistrationFragmentViewModel () : ViewModel() {
         })
     }
 
+
     /*Verifica la corretta formattazione del nome e del cognome*/
     fun isValidNameAndSurname(name : String , surname: String) : Boolean{
         val nameAndSurnameRegex = Regex("^[a-zA-Z]{2,}\$")

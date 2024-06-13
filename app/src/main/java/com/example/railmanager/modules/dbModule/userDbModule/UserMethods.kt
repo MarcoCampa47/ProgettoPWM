@@ -3,6 +3,7 @@ package com.example.railmanager.modules.dbModule.userDbModule
 import android.app.AlertDialog
 import android.content.Context
 import android.util.Log
+import com.example.railmanager.modules.dbModule.loginDbModule.LoginRequest
 import okhttp3.MediaType
 import okhttp3.RequestBody
 import org.json.JSONObject
@@ -44,6 +45,38 @@ class UserMethods {
 
         })
 
+    }
+
+    fun checkIfPasswordIsCorrected(context: Context, email: String, password: String, callback: CheckUserCallback){
+
+        val json = JSONObject()
+        json.put("email", email)
+        json.put("password", password)
+
+        val requestBody = RequestBody.create(MediaType.parse("application/json"), json.toString())
+        val loginRequest = LoginRequest(email,password)
+        val call = userApiService.checkIfPasswordIsCorrected(loginRequest)
+        var result = false;
+        call.enqueue(object : Callback<User> {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
+                if(response.isSuccessful){
+                    val user = response.body()
+                    if(user != null && user.email == email && user.password == password) {
+                        callback.onResult(true)
+                    }
+                    else{
+                        Log.d("DEBUG", "Verifica che E-mail e password siano corretti")
+                        callback.onResult(false)
+                    }
+                }
+            }
+
+            override fun onFailure(p0: Call<User>, t: Throwable) {
+                Log.d("DEBUG","Request failed with response code: ${t.message}")
+                callback.onResult(false)
+            }
+
+        })
     }
 
     fun registerUser(context: Context, name : String, surname : String, email: String , password : String, date : String, phoneNumber : String) : Boolean{

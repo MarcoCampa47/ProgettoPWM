@@ -1,18 +1,28 @@
-package com.example.railmanager.modules.ticketsModule
+package com.example.railmanager.modules.ticketsModule.searchModule
 
+import android.R
 import android.content.Context
 import android.util.Log
+import android.widget.ArrayAdapter
 import androidx.lifecycle.ViewModel
-import com.example.railmanager.modules.dbModule.userDbModule.UserMethods
+import com.example.railmanager.modules.dbModule.UsefulStaticMethods
+import com.example.railmanager.modules.dbModule.cityDbModule.CityMethods
 import java.time.LocalDate
 import java.time.Period
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
 import java.util.Locale
-import android.app.AlertDialog
 
-class TicketsRoutesFragmentViewModel() : ViewModel() {
+class TrainRoutesFragmentViewModel() : ViewModel() {
 
+    val cityMethods = CityMethods()
+
+    fun getAutoCompleteAdapterAllCities(context: Context, callback: (ArrayAdapter<String>) -> Unit) {
+        cityMethods.getAllCities(context) { citiesHashMap ->
+            val adapter = ArrayAdapter(context, android.R.layout.simple_dropdown_item_1line, citiesHashMap.values.toList())
+            callback(adapter)
+        }
+    }
 
 
     fun isValidDate(startDate: String , endDate: String): Int {
@@ -38,16 +48,16 @@ class TicketsRoutesFragmentViewModel() : ViewModel() {
         return false
     }
 
-    fun checkAllFields(context: Context, startDate : String , endDate : String , adult : Int , child : Int){
+    fun checkAllFields(context: Context, startDate : String, endDate : String, adult : Int, child : Int){
 
 
         if(isValidDate(startDate , endDate) < 0) {
-            showSimpleAlertDialog(context, "Le date inserite non sono valide.")
+            UsefulStaticMethods.showSimpleAlertDialog(context, "Le date inserite non sono valide.")
             return
         }
 
         if(!isValidNumberOfPassengers(adult , child)){
-            showSimpleAlertDialog(context, "Il numero di passeggeri non è valido.")
+            UsefulStaticMethods.showSimpleAlertDialog(context, "Il numero di passeggeri non è valido.")
             return
         }
 
@@ -56,14 +66,4 @@ class TicketsRoutesFragmentViewModel() : ViewModel() {
 
     }
 
-
-
-    private fun showSimpleAlertDialog(context: Context, message: String) {
-        AlertDialog.Builder(context)
-            .setMessage(message)
-            .setPositiveButton("OK") { dialog, _ ->
-                dialog.dismiss()
-            }
-            .show()
-    }
 }

@@ -1,14 +1,15 @@
-package com.example.railmanager.modules.ticketsModule
+package com.example.railmanager.modules.ticketsModule.searchModule
 
 import android.app.DatePickerDialog
 import android.icu.util.Calendar
 import android.icu.util.TimeZone
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -21,7 +22,7 @@ import java.util.Locale
 
 class TrainRoutesFragment : Fragment() {
 
-    val trainRoutesFragmentViewModel : TicketsRoutesFragmentViewModel by viewModels()
+    val trainRoutesFragmentViewModel : TrainRoutesFragmentViewModel by viewModels()
             override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -44,6 +45,19 @@ class TrainRoutesFragment : Fragment() {
         val minorsMinusButton: ImageView =
             view.findViewById(R.id.minusMinorsImageViewTrainRouteFragment)
         val searchButton: Button = view.findViewById(R.id.searchButtonTrainRoutesFragment)
+
+
+        this.context?.let {
+            trainRoutesFragmentViewModel.getAutoCompleteAdapterAllCities(it) { adapter ->
+                val startPoint = view.findViewById<AutoCompleteTextView>(R.id.startPointAutoCompTrainRoutesFragment)
+                val endPoint = view.findViewById<AutoCompleteTextView>(R.id.endPointAutoCompTrainRoutesFragment)
+                startPoint.setAdapter(adapter)
+                startPoint.threshold = 0
+                endPoint.setAdapter(adapter)
+                endPoint.threshold = 0
+            }
+        }
+
 
         startDate.showSoftInputOnFocus = false
         endDate.showSoftInputOnFocus = false

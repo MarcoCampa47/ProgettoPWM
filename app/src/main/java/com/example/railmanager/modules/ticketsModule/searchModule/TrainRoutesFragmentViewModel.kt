@@ -16,10 +16,14 @@ import java.util.Locale
 class TrainRoutesFragmentViewModel() : ViewModel() {
 
     val cityMethods = CityMethods()
+    //Mappa contenente le città e le stazioni associate
+    var citiesAndStationsHashMap = HashMap<String, Pair<Int, Int>>()
 
     fun getAutoCompleteAdapterAllCities(context: Context, callback: (ArrayAdapter<String>) -> Unit) {
-        cityMethods.getAllCities(context) { citiesHashMap ->
-            val adapter = ArrayAdapter(context, android.R.layout.simple_dropdown_item_1line, citiesHashMap.values.toList())
+
+        cityMethods.getAllCities(context) { obteinedMap ->
+            citiesAndStationsHashMap = obteinedMap;
+            val adapter = ArrayAdapter(context, android.R.layout.simple_dropdown_item_1line, obteinedMap.keys.toList())
             callback(adapter)
         }
     }

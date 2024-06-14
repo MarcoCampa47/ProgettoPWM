@@ -3,6 +3,7 @@ package com.example.railmanager.modules.dbModule.userDbModule
 import android.app.AlertDialog
 import android.content.Context
 import android.util.Log
+import com.example.railmanager.modules.dbModule.UsefulStaticMethods
 import com.example.railmanager.modules.dbModule.loginDbModule.LoginRequest
 import okhttp3.MediaType
 import okhttp3.RequestBody
@@ -99,18 +100,18 @@ class UserMethods {
                     if(response.isSuccessful){
                         val responseResult = response.body()
                         if(responseResult != null && responseResult.email.toBoolean()) {
-                            showSimpleAlertDialog(context, "Ti sei registrato")
+                            UsefulStaticMethods.showSimpleAlertDialog(context, "Ti sei registrato")
                             Log.d("DEBUG"," ${responseResult}")
                         }
                     }
                     else{
                         Log.d("DEBUG","Request failed with response code: ${response.code()}")
-                        showSimpleAlertDialog(context, "Si è verificato un errore imprevisto")
+                        UsefulStaticMethods.showSimpleAlertDialog(context, "Si è verificato un errore imprevisto")
                     }
                 }
 
                 override fun onFailure(p0: Call<User>, p1: Throwable) {
-                    showSimpleAlertDialog(context, "Si è verificato un errore imprevisto")
+                    UsefulStaticMethods.showSimpleAlertDialog(context, "Si è verificato un errore imprevisto")
                     Log.d("DEBUG","Request failed with response code: ${p1.message}" )
                 }
 
@@ -147,12 +148,4 @@ class UserMethods {
         })
     }
 
-    private fun showSimpleAlertDialog(context: Context, message: String) {
-        AlertDialog.Builder(context)
-            .setMessage(message)
-            .setPositiveButton("OK") { dialog, _ ->
-                dialog.dismiss()
-            }
-            .show()
-    }
 }

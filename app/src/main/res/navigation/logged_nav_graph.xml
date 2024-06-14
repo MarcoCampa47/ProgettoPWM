@@ -6,7 +6,7 @@
     app:startDestination="@id/trainRoutesFragment">
     <fragment
         android:id="@+id/trainRoutesFragment"
-        android:name="com.example.railmanager.modules.ticketsModule.TrainRoutesFragment"
+        android:name="com.example.railmanager.modules.ticketsModule.searchModule.TrainRoutesFragment"
         android:label="fragment_train_routes"
         tools:layout="@layout/fragment_train_routes" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/ticketsPaymentFragment"
-        android:name="com.example.railmanager.modules.ticketsModule.TicketsPaymentFragment"
+        android:name="com.example.railmanager.modules.ticketsModule.resultModule.TicketsResultFragment"
         android:label="fragment_tickets_payment"
-        tools:layout="@layout/fragment_tickets_payment" />
+        tools:layout="@layout/fragment_tickets_result" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.railmanager.modules.ticketsModule
+package com.example.railmanager.modules.ticketsModule.resultModule
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import com.example.railmanager.R
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.railmanager.modules.ticketsModule.TicketsAdapter
 
 
-class TicketsPaymentFragment : Fragment() {
+class TicketsResultFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +24,7 @@ class TicketsPaymentFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tickets_payment, container, false)
+        return inflater.inflate(R.layout.fragment_tickets_result, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

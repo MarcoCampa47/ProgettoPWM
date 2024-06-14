@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import com.example.railmanager.MainActivity
+import com.example.railmanager.modules.dbModule.UsefulStaticMethods
 import com.example.railmanager.modules.dbModule.userDbModule.CheckUserCallback
 import com.example.railmanager.modules.dbModule.userDbModule.UserMethods
 import com.example.railmanager.modules.ticketsModule.TicketsActivity
@@ -21,12 +22,12 @@ class LoginFragmentViewModel() : ViewModel() {
         val userMethods = UserMethods()
 
         if(!isValidMail(email)) {
-            showSimpleAlertDialog(context, "Verifica che l'email sia inserita correttamente e riprova")
+            UsefulStaticMethods.showSimpleAlertDialog(context, "Verifica che l'email sia inserita correttamente e riprova")
             return
         }
 
         if(!isValidPassword(password)) {
-            showSimpleAlertDialog(context, "Verifica che la password sia inserita correttamente e riprova")
+            UsefulStaticMethods.showSimpleAlertDialog(context, "Verifica che la password sia inserita correttamente e riprova")
             return
         }
 
@@ -45,17 +46,18 @@ class LoginFragmentViewModel() : ViewModel() {
                             if (exists) {
                                 val intent = Intent(context, TicketsActivity::class.java)
                                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                intent.putExtra("e-mail", email)
                                 context.startActivity(intent)
                             }
                             else{
-                                showSimpleAlertDialog(context,"Verifica che la password sia inserita correttamente e riprova")
+                                UsefulStaticMethods.showSimpleAlertDialog(context,"Verifica che la password sia inserita correttamente e riprova")
                             }
                         }
 
                     })
                 } else {
                     // L'utente non esiste, procedi con la registrazione
-                    showSimpleAlertDialog(context, "L'utente non risulta registrato")
+                    UsefulStaticMethods.showSimpleAlertDialog(context, "L'utente non risulta registrato")
                 }
             }
         })
@@ -73,13 +75,5 @@ class LoginFragmentViewModel() : ViewModel() {
         return passwordRegex.matches(password)
     }
 
-    private fun showSimpleAlertDialog(context: Context, message: String) {
-        AlertDialog.Builder(context)
-            .setMessage(message)
-            .setPositiveButton("OK") { dialog, _ ->
-                dialog.dismiss()
-            }
-            .show()
-    }
 
 }

@@ -7,6 +7,8 @@ import android.widget.ArrayAdapter
 import androidx.lifecycle.ViewModel
 import com.example.railmanager.modules.dbModule.UsefulStaticMethods
 import com.example.railmanager.modules.dbModule.cityDbModule.CityMethods
+import com.example.railmanager.modules.dbModule.searchDbModule.SearchRequest
+import com.example.railmanager.modules.dbModule.ticketsDbModule.TicketsMethods
 import java.time.LocalDate
 import java.time.Period
 import java.time.format.DateTimeFormatter
@@ -28,6 +30,33 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
         }
     }
 
+    fun search(context: Context, startCity : String, endCity : String, departureDate : String, arrivalDate : String, adult : String, child : String){
+
+        if(!(citiesAndStationsHashMap.keys.toList().contains(startCity) && citiesAndStationsHashMap.keys.toList().contains(endCity)) ){
+            UsefulStaticMethods.showSimpleAlertDialog(context, "Assicurati che i luoghi di partenza/arrivo appartengano alle città registrate")
+            return
+        }
+
+        //Coppie di ID <idcitta, idstazione>, se la città selezionata non ha stazioni allora la coppia sarà <idcittà, -1>
+        val startPointCoupleId = citiesAndStationsHashMap[startCity]!!
+        val endPointCoupleId = citiesAndStationsHashMap[endCity]!!
+
+        val ticketsMethods = TicketsMethods()
+
+        val searchRequest = SearchRequest(
+            startPointCoupleId.first.toString(),
+            startPointCoupleId.second.toString(),
+            endPointCoupleId.first.toString(),
+            endPointCoupleId.second.toString(),
+            departureDate,
+            arrivalDate,
+            adult,
+            child
+        )
+
+        ticketsMethods.runSearch(context, searchRequest)
+
+    }
 
     fun isValidDate(startDate: String , endDate: String): Int {
         var years : Int
@@ -54,10 +83,15 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
 
     fun checkAllFields(context: Context, startDate : String, endDate : String, adult : Int, child : Int){
 
+        if(!endDate.isEmpty() ) {
 
-        if(isValidDate(startDate , endDate) < 0) {
-            UsefulStaticMethods.showSimpleAlertDialog(context, "Le date inserite non sono valide.")
-            return
+            if (isValidDate(startDate, endDate) < 0) {
+                UsefulStaticMethods.showSimpleAlertDialog(
+                    context,
+                    "Le date inserite non sono valide."
+                )
+                return
+            }
         }
 
         if(!isValidNumberOfPassengers(adult , child)){

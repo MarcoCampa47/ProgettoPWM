@@ -9,8 +9,10 @@ import com.example.railmanager.modules.dbModule.UsefulStaticMethods
 import com.example.railmanager.modules.dbModule.cityDbModule.CityMethods
 import com.example.railmanager.modules.dbModule.searchDbModule.SearchRequest
 import com.example.railmanager.modules.dbModule.ticketsDbModule.TicketsMethods
+import java.time.Instant
 import java.time.LocalDate
 import java.time.Period
+import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
 import java.util.Locale
@@ -18,22 +20,43 @@ import java.util.Locale
 class TrainRoutesFragmentViewModel() : ViewModel() {
 
     val cityMethods = CityMethods()
+
     //Mappa contenente le città e le stazioni associate
     var citiesAndStationsHashMap = HashMap<String, Pair<Int, Int>>()
 
-    fun getAutoCompleteAdapterAllCities(context: Context, callback: (ArrayAdapter<String>) -> Unit) {
+    fun getAutoCompleteAdapterAllCities(
+        context: Context,
+        callback: (ArrayAdapter<String>) -> Unit
+    ) {
 
         cityMethods.getAllCities(context) { obteinedMap ->
             citiesAndStationsHashMap = obteinedMap;
-            val adapter = ArrayAdapter(context, android.R.layout.simple_dropdown_item_1line, obteinedMap.keys.toList())
+            val adapter = ArrayAdapter(
+                context,
+                android.R.layout.simple_dropdown_item_1line,
+                obteinedMap.keys.toList()
+            )
             callback(adapter)
         }
     }
 
-    fun search(context: Context, startCity : String, endCity : String, departureDate : String, arrivalDate : String, adult : String, child : String){
+    fun search(
+        context: Context,
+        startCity: String,
+        endCity: String,
+        departureDate: String,
+        arrivalDate: String,
+        adult: String,
+        child: String
+    ) {
 
-        if(!(citiesAndStationsHashMap.keys.toList().contains(startCity) && citiesAndStationsHashMap.keys.toList().contains(endCity)) ){
-            UsefulStaticMethods.showSimpleAlertDialog(context, "Assicurati che i luoghi di partenza/arrivo appartengano alle città registrate")
+        if (!(citiesAndStationsHashMap.keys.toList()
+                .contains(startCity) && citiesAndStationsHashMap.keys.toList().contains(endCity))
+        ) {
+            UsefulStaticMethods.showSimpleAlertDialog(
+                context,
+                "Assicurati che i luoghi di partenza/arrivo appartengano alle città registrate"
+            )
             return
         }
 
@@ -58,15 +81,22 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
 
     }
 
-    fun isValidDate(startDate: String , endDate: String): Int {
-        var years : Int
+    fun isValidDate(startDate: String, endDate: String): Int {
+        var years: Int
         years = -1
         try {
             val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.getDefault())
             val startDate = LocalDate.parse(startDate, formatter)
-            val endDate = LocalDate.parse(endDate , formatter)
+            val endDate = LocalDate.parse(endDate, formatter)
+            val actualDate = Instant.now().atZone(ZoneId.systemDefault()).format(formatter)
+            val actualDateFormatted = LocalDate.parse(actualDate, formatter)
+
+            if (startDate.isBefore(actualDateFormatted)) {
+                return 0
+            }
+
             val yearsBetween = Period.between(startDate, endDate).days
-            years =  yearsBetween
+            years = yearsBetween
         } catch (e: DateTimeParseException) {
             Log.d("TAG1", "Invalid date format")
             null
@@ -74,16 +104,39 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
         return years
     }
 
-    fun isValidNumberOfPassengers(adult : Int , child : Int) : Boolean{
-        if(adult + child > 0){
+    fun isValidStartDate(startDate: String): Int {
+        try {
+            val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.getDefault())
+            val startDate = LocalDate.parse(startDate, formatter)
+            val actualDate = Instant.now().atZone(ZoneId.systemDefault()).format(formatter)
+            val actualDateFormatted = LocalDate.parse(actualDate, formatter)
+
+            if (startDate.isBefore(actualDateFormatted)) {
+                return 0
+            }
+        } catch (ex: DateTimeParseException) {
+            Log.d("TAG3", "Invalid date format")
+            null
+        }
+        return 1
+    }
+
+    fun isValidNumberOfPassengers(adult: Int, child: Int): Boolean {
+        if (adult + child > 0) {
             return true
         }
         return false
     }
 
-    fun checkAllFields(context: Context, startDate : String, endDate : String, adult : Int, child : Int){
+    fun checkAllFields(
+        context: Context,
+        startDate: String,
+        endDate: String,
+        adult: Int,
+        child: Int
+    ) {
 
-        if(!endDate.isEmpty() ) {
+        if (!endDate.isEmpty()) {
 
             if (isValidDate(startDate, endDate) < 0) {
                 UsefulStaticMethods.showSimpleAlertDialog(
@@ -92,16 +145,34 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
                 )
                 return
             }
+
+            if (isValidDate(startDate, endDate) == 0) {
+                UsefulStaticMethods.showSimpleAlertDialog(
+                    context,
+                    "La data di partenza non può essere precedente alla data di arrivo."
+                )
+                return
+            }
+        } else {
+            if (isValidStartDate(startDate) == 0) {
+                UsefulStaticMethods.showSimpleAlertDialog(
+                    context,
+                    "La data di partenza non può essere precedente alla data di oggi."
+                )
+            }
+
+
+
+            if (!isValidNumberOfPassengers(adult, child)) {
+                UsefulStaticMethods.showSimpleAlertDialog(
+                    context,
+                    "Il numero di passeggeri non è valido."
+                )
+                return
+            }
+
+
         }
-
-        if(!isValidNumberOfPassengers(adult , child)){
-            UsefulStaticMethods.showSimpleAlertDialog(context, "Il numero di passeggeri non è valido.")
-            return
-        }
-
-
-
 
     }
-
 }

@@ -47,10 +47,11 @@ class TrainRoutesFragment : Fragment() {
         val searchButton: Button = view.findViewById(R.id.searchButtonTrainRoutesFragment)
 
 
+        val startPoint = view.findViewById<AutoCompleteTextView>(R.id.startPointAutoCompTrainRoutesFragment)
+        val endPoint = view.findViewById<AutoCompleteTextView>(R.id.endPointAutoCompTrainRoutesFragment)
+
         this.context?.let {
             trainRoutesFragmentViewModel.getAutoCompleteAdapterAllCities(it) { adapter ->
-                val startPoint = view.findViewById<AutoCompleteTextView>(R.id.startPointAutoCompTrainRoutesFragment)
-                val endPoint = view.findViewById<AutoCompleteTextView>(R.id.endPointAutoCompTrainRoutesFragment)
                 startPoint.setAdapter(adapter)
                 startPoint.threshold = 0
                 endPoint.setAdapter(adapter)
@@ -78,6 +79,8 @@ class TrainRoutesFragment : Fragment() {
                     Integer.parseInt(adults.text.toString()),
                     Integer.parseInt(minors.text.toString())
                 )
+
+                context?.let { context -> trainRoutesFragmentViewModel.search(context, startPoint.text.toString(), endPoint.text.toString() , startDate.text.toString(), endDate.text.toString(), adults.text.toString(), minors.text.toString() ) }
             }
 
         }

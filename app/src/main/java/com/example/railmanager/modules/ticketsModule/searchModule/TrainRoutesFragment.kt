@@ -80,7 +80,7 @@ class TrainRoutesFragment : Fragment() {
                     Integer.parseInt(minors.text.toString())
                 )
 
-                context?.let { context -> trainRoutesFragmentViewModel.search(context, startPoint.text.toString(), endPoint.text.toString() , startDate.text.toString(), endDate.text.toString(), adults.text.toString(), minors.text.toString() ) }
+                //context?.let { context -> trainRoutesFragmentViewModel.search(context, startPoint.text.toString(), endPoint.text.toString() , startDate.text.toString(), endDate.text.toString(), adults.text.toString(), minors.text.toString() ) }
             }
 
         }

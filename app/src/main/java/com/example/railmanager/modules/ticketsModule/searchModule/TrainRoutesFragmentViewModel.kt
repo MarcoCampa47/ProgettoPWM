@@ -92,10 +92,13 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
             val actualDateFormatted = LocalDate.parse(actualDate, formatter)
 
             if (startDate.isBefore(actualDateFormatted)) {
-                return 0
+                return -2
             }
 
             val yearsBetween = Period.between(startDate, endDate).days
+            if (yearsBetween < 0) {
+                return -1
+            }
             years = yearsBetween
         } catch (e: DateTimeParseException) {
             Log.d("TAG1", "Invalid date format")
@@ -104,10 +107,10 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
         return years
     }
 
-    fun isValidStartDate(startDate: String): Int {
+    fun isValidStartAndEndDate(date: String): Int {
         try {
             val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.getDefault())
-            val startDate = LocalDate.parse(startDate, formatter)
+            val startDate = LocalDate.parse(date, formatter)
             val actualDate = Instant.now().atZone(ZoneId.systemDefault()).format(formatter)
             val actualDateFormatted = LocalDate.parse(actualDate, formatter)
 
@@ -138,7 +141,15 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
 
         if (!endDate.isEmpty()) {
 
-            if (isValidDate(startDate, endDate) < 0) {
+            if(isValidStartAndEndDate(endDate) == 0){
+                UsefulStaticMethods.showSimpleAlertDialog(
+                    context,
+                    "La data di arrivo non può essere precedente alla data di oggi."
+                )
+                return
+            }
+
+            if (isValidDate(startDate, endDate) == -1) {
                 UsefulStaticMethods.showSimpleAlertDialog(
                     context,
                     "Le date inserite non sono valide."
@@ -146,15 +157,17 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
                 return
             }
 
-            if (isValidDate(startDate, endDate) == 0) {
+            if (isValidDate(startDate, endDate) == -2) {
                 UsefulStaticMethods.showSimpleAlertDialog(
                     context,
-                    "La data di partenza non può essere precedente alla data di arrivo."
+                    "La data di partenza non può essere precedente alla data di oggi."
                 )
                 return
             }
+
+
         } else {
-            if (isValidStartDate(startDate) == 0) {
+            if (isValidStartAndEndDate(startDate) == 0) {
                 UsefulStaticMethods.showSimpleAlertDialog(
                     context,
                     "La data di partenza non può essere precedente alla data di oggi."

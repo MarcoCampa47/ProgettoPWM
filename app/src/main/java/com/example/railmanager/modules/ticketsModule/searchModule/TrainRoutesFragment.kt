@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.EditText
@@ -80,7 +79,7 @@ class TrainRoutesFragment : Fragment() {
                     Integer.parseInt(minors.text.toString())
                 )
 
-                context?.let { context -> trainRoutesFragmentViewModel.search(context, startPoint.text.toString(), endPoint.text.toString() , startDate.text.toString(), endDate.text.toString(), adults.text.toString(), minors.text.toString() ) }
+                context?.let { context -> trainRoutesFragmentViewModel.search(this,  context, startPoint.text.toString(), endPoint.text.toString() , startDate.text.toString(), endDate.text.toString(), adults.text.toString(), minors.text.toString() ) }
             }
 
         }

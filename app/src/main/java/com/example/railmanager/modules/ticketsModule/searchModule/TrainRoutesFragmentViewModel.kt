@@ -4,6 +4,7 @@ import android.R
 import android.content.Context
 import android.util.Log
 import android.widget.ArrayAdapter
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import com.example.railmanager.modules.dbModule.UsefulStaticMethods
 import com.example.railmanager.modules.dbModule.cityDbModule.CityMethods
@@ -41,6 +42,7 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
     }
 
     fun search(
+        fragment : Fragment,
         context: Context,
         startCity: String,
         endCity: String,
@@ -77,7 +79,8 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
             child
         )
 
-        ticketsMethods.runSearch(context, searchRequest)
+        ticketsMethods.runSearch(fragment, context, searchRequest)
+
 
     }
 

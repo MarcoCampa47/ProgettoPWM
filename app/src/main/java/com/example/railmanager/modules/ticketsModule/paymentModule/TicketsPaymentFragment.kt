@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.railmanager.R
+import com.example.railmanager.modules.dbModule.ticketsDbModule.Tickets
 
 
-class ticketPaymentFragment : Fragment() {
-
+class TicketsPaymentFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +22,10 @@ class ticketPaymentFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_ticket_payment, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 
 

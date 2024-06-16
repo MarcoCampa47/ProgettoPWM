@@ -8,7 +8,7 @@
     tools:context=".modules.ticketsModule.TicketsActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/navgraphActivityTickets"
+        android:id="@+id/navHostActivityTickets"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"

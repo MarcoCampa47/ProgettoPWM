@@ -11,11 +11,19 @@
         tools:layout="@layout/fragment_train_routes" >
         <action
             android:id="@+id/action_trainRoutesFragment_to_ticketsPaymentFragment"
-            app:destination="@id/ticketsPaymentFragment" />
+            app:destination="@id/ticketsResultFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
-        android:id="@+id/ticketsPaymentFragment"
+        android:id="@+id/ticketsResultFragment"
         android:name="com.example.railmanager.modules.ticketsModule.resultModule.TicketsResultFragment"
         android:label="fragment_tickets_payment"
-        tools:layout="@layout/fragment_tickets_result" />
+        tools:layout="@layout/fragment_tickets_result" >
+        <argument
+            android:name="ticketsList"
+            app:argType="com.example.railmanager.modules.dbModule.ticketsDbModule.Tickets[]" />
+    </fragment>
 </navigation>

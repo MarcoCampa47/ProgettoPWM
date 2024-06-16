@@ -1,9 +1,15 @@
 package com.example.railmanager.modules.dbModule.ticketsDbModule
 
 import android.content.Context
+import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.railmanager.R
 import com.example.railmanager.modules.dbModule.UsefulStaticMethods
 import com.example.railmanager.modules.dbModule.searchDbModule.SearchRequest
+import com.example.railmanager.modules.ticketsModule.searchModule.TrainRoutesFragment
+import com.example.railmanager.modules.ticketsModule.searchModule.TrainRoutesFragmentDirections
 import com.google.gson.Gson
 import okhttp3.MediaType
 import okhttp3.RequestBody
@@ -20,13 +26,18 @@ class TicketsMethods {
 
     val ticketsServiceApi = retrofit.create(TicketsInterface::class.java)
 
-    fun runSearch(context: Context, searchRequest: SearchRequest){
+    fun runSearch(fragment: Fragment, context: Context, searchRequest: SearchRequest){
 
         getTicketsFromResearch(context, searchRequest) { ticketsList ->
             // Qui puoi gestire la lista di biglietti ricevuta
             if (ticketsList != null) {
-                /*Fai intent*/
-                Log.d("Devo fare l'intent", ticketsList.toString())
+                UsefulStaticMethods.showSimpleAlertDialog(context, "Biglietti trovati")
+
+                //Sostituisco eventuali valori a null con i valori di default, in quanto ticket è serializable e non può avere valori null
+                val ticketsListWithDefault = ticketsList.withDefaultValues()
+
+                // Naviga utilizzando Safe Args
+                fragment.findNavController().navigate(TrainRoutesFragmentDirections.actionTrainRoutesFragmentToTicketsPaymentFragment(ticketsListWithDefault.toTypedArray()))
             } else {
                 UsefulStaticMethods.showSimpleAlertDialog(context, "Nessun biglietto trovato con questi criteri")
             }
@@ -45,7 +56,7 @@ class TicketsMethods {
                 if (response.isSuccessful) {
                     val ticketsListResponse = response.body()
                     if (ticketsListResponse != null) {
-                        Log.d("Risposta dal server", ticketsListResponse.toString())
+                        //Log.d("Risposta dal server", ticketsListResponse.toString())
                         if (ticketsListResponse.isEmpty()) {
                             UsefulStaticMethods.showSimpleAlertDialog(context, "Nessun biglietto trovato")
                         } else {

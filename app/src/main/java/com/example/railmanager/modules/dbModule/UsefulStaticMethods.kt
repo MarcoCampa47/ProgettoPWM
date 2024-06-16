@@ -45,6 +45,18 @@ class UsefulStaticMethods {
             return dataFormattata
         }
 
+        fun <K, V> getKeysForValues(hashMap: HashMap<K, V>, values: List<V>): HashMap<K, V> {
+            val resultMap = HashMap<K, V>()
+
+            for (entry in hashMap.entries) {
+                if (entry.value in values) {
+                    resultMap[entry.key] = entry.value
+                }
+            }
+
+            return resultMap
+        }
+
     }
 
 }

@@ -4,6 +4,8 @@ import android.app.DatePickerDialog
 import android.icu.util.Calendar
 import android.icu.util.TimeZone
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +16,10 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.example.railmanager.R
+import com.example.railmanager.modules.ticketsModule.TicketsActivity
+import com.example.railmanager.modules.ticketsModule.TicketsActivityViewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
@@ -22,6 +27,7 @@ import java.util.Locale
 class TrainRoutesFragment : Fragment() {
 
     val trainRoutesFragmentViewModel : TrainRoutesFragmentViewModel by viewModels()
+    private val ticketsActivityViewModel : TicketsActivityViewModel by viewModels()
             override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -69,6 +75,8 @@ class TrainRoutesFragment : Fragment() {
             openCalendar(R.id.EndEditTextDateTrainRoutesFragment)
         }
 
+
+
         searchButton.setOnClickListener {
             this.context?.let { ct ->
                 trainRoutesFragmentViewModel.checkAllFields(
@@ -79,10 +87,35 @@ class TrainRoutesFragment : Fragment() {
                     Integer.parseInt(minors.text.toString())
                 )
 
-                context?.let { context -> trainRoutesFragmentViewModel.search(this,  context, startPoint.text.toString(), endPoint.text.toString() , startDate.text.toString(), endDate.text.toString(), adults.text.toString(), minors.text.toString() ) }
+
+                context?.let { context ->
+                    val ticketsActivity = activity as TicketsActivity
+                    trainRoutesFragmentViewModel.search(this,  context, startPoint.text.toString(), endPoint.text.toString() , startDate.text.toString(), endDate.text.toString(), adults.text.toString(), minors.text.toString() )
+                }
             }
 
+
+
         }
+
+        // Listener per il cambiamento di testo della TextView degli adulti
+        adults.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // Non necessario implementare
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Quando il testo cambia, aggiorna il LiveData nel ViewModel
+                s?.toString()?.let { text ->
+                    val number = if (text.isEmpty()) 0 else text.toInt()
+                    ticketsActivityViewModel.setAdultsNumber(number)
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                // Non necessario implementare
+            }
+        })
 
         adultsPlusButton.setOnClickListener {
             var number = Integer.parseInt(adults.text.toString())
@@ -98,6 +131,24 @@ class TrainRoutesFragment : Fragment() {
                 adults.text = number.toString()
             }
         }
+
+        minors.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // Non necessario implementare
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Quando il testo cambia, aggiorna il LiveData nel ViewModel
+                s?.toString()?.let { text ->
+                    val number = if (text.isEmpty()) 0 else text.toInt()
+                    ticketsActivityViewModel.setMinorsNumber(number)
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                // Non necessario implementare
+            }
+        })
 
         minorsPlusButton.setOnClickListener {
             var number = Integer.parseInt(minors.text.toString())

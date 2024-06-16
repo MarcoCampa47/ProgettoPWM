@@ -3,6 +3,7 @@ package com.example.railmanager.modules.ticketsModule
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -10,6 +11,10 @@ import com.example.railmanager.R
 import com.example.railmanager.modules.ticketsModule.searchModule.TrainRoutesFragmentViewModel
 
 class TicketsActivity : AppCompatActivity() {
+
+    val ticketsActivityViewModel : TicketsActivityViewModel by viewModels()
+    private var emailUtente : String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -21,14 +26,16 @@ class TicketsActivity : AppCompatActivity() {
         }
 
         val intent = intent;
-        val emailUtente = intent.getStringExtra("e-mail")
+        emailUtente = intent.getStringExtra("e-mail")
 
-        /*
-        val trainRoutesFragmentViewModel = emailUtente?.let { TrainRoutesFragmentViewModel(it) }
-        if (emailUtente != null) {
-            Log.d("DEBUG", emailUtente)
-        }
-        */
+        //N.B PER TEST, CANCELLARE DOPO
+        emailUtente = "mmarkcampy@gmail.com"
+
+
+        ticketsActivityViewModel.setEmail(emailUtente!!)
+
+
+
 
     }
 
@@ -40,5 +47,6 @@ class TicketsActivity : AppCompatActivity() {
             finish()
         }
     }
+
 }
 

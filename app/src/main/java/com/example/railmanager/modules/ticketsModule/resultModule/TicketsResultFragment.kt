@@ -6,14 +6,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.railmanager.R
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.railmanager.modules.ticketsModule.TicketsActivity
+import com.example.railmanager.modules.ticketsModule.TicketsActivityViewModel
 
 
 class TicketsResultFragment : Fragment() {
     private val args: TicketsResultFragmentArgs by navArgs()
+    val ticketsActivityViewModel : TicketsActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +41,11 @@ class TicketsResultFragment : Fragment() {
             Log.d("ResultFragment", "ID: ${ticket.idticket}, Departure: ${ticket.departure_time}, Arrival: ${ticket.arrival_time}")
         }
 
-        val adapter = TicketsResultAdapter(ArrayList(ticketsList))
+        /*val originActivity = this.activity as TicketsActivity
+        Log.d("Email utente" , originActivity.getUserEmail() )
+        Log.d("Numero adulti e minori", originActivity.getAdultsAndMinorsNumber().toString())
+          */
+        val adapter = TicketsResultAdapter(ArrayList(ticketsList), ticketsActivityViewModel )
 
         val recyclerView : RecyclerView = view.findViewById(R.id.rvFragmentTicketsPayment)
 

@@ -10,6 +10,7 @@ import com.example.railmanager.modules.dbModule.UsefulStaticMethods
 import com.example.railmanager.modules.dbModule.cityDbModule.CityMethods
 import com.example.railmanager.modules.dbModule.searchDbModule.SearchRequest
 import com.example.railmanager.modules.dbModule.ticketsDbModule.TicketsMethods
+import com.example.railmanager.modules.ticketsModule.TicketsActivityViewModel
 import java.time.Instant
 import java.time.LocalDate
 import java.time.Period
@@ -20,10 +21,9 @@ import java.util.Locale
 
 class TrainRoutesFragmentViewModel() : ViewModel() {
 
+    val ticketsActivityViewModel = TicketsActivityViewModel
     val cityMethods = CityMethods()
 
-    //Mappa contenente le città e le stazioni associate
-    var citiesAndStationsHashMap = HashMap<String, Pair<Int, Int>>()
 
     fun getAutoCompleteAdapterAllCities(
         context: Context,
@@ -31,7 +31,7 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
     ) {
 
         cityMethods.getAllCities(context) { obteinedMap ->
-            citiesAndStationsHashMap = obteinedMap;
+            ticketsActivityViewModel.setAllCitiesAndStationsHashMap(obteinedMap)
             val adapter = ArrayAdapter(
                 context,
                 android.R.layout.simple_dropdown_item_1line,
@@ -40,6 +40,7 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
             callback(adapter)
         }
     }
+
 
     fun search(
         fragment : Fragment,
@@ -52,9 +53,7 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
         child: String
     ) {
 
-        if (!(citiesAndStationsHashMap.keys.toList()
-                .contains(startCity) && citiesAndStationsHashMap.keys.toList().contains(endCity))
-        ) {
+        if (!(ticketsActivityViewModel.getAllCitiesAndStationsHashMap().keys.toList().contains(startCity) && ticketsActivityViewModel.getAllCitiesAndStationsHashMap().keys.toList().contains(endCity)) || startCity == endCity ) {
             UsefulStaticMethods.showSimpleAlertDialog(
                 context,
                 "Assicurati che i luoghi di partenza/arrivo appartengano alle città registrate"
@@ -63,8 +62,13 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
         }
 
         //Coppie di ID <idcitta, idstazione>, se la città selezionata non ha stazioni allora la coppia sarà <idcittà, -1>
-        val startPointCoupleId = citiesAndStationsHashMap[startCity]!!
-        val endPointCoupleId = citiesAndStationsHashMap[endCity]!!
+        val startPointCoupleId = ticketsActivityViewModel.getAllCitiesAndStationsHashMap()[startCity]!!
+        val endPointCoupleId = ticketsActivityViewModel.getAllCitiesAndStationsHashMap()[endCity]!!
+
+        //---------- Tengo traccia degli id delle città/stazioni selezionate
+        var hashMapCoupleStartAndArrive = UsefulStaticMethods.getKeysForValues(ticketsActivityViewModel.getAllCitiesAndStationsHashMap(), listOf(startPointCoupleId, endPointCoupleId))
+        ticketsActivityViewModel.setCitiesAndStationsSearchedHashMap(hashMapCoupleStartAndArrive)
+        //----------
 
         val ticketsMethods = TicketsMethods()
 

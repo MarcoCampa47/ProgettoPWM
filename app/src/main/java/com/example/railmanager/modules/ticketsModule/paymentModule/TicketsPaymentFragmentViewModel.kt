@@ -5,14 +5,16 @@ import androidx.lifecycle.ViewModel
 import com.example.railmanager.modules.dbModule.UsefulStaticMethods
 import com.example.railmanager.modules.dbModule.ticketsDbModule.Tickets
 import com.example.railmanager.modules.dbModule.ticketsDbModule.TicketsMethods
+import com.example.railmanager.modules.dbModule.user_ticketDbModule.UserTicketRequest
+import com.example.railmanager.modules.dbModule.user_ticketDbModule.UserTicketRequestMethods
 import com.example.railmanager.modules.ticketsModule.TicketsActivityViewModel
 
 class TicketsPaymentFragmentViewModel : ViewModel() {
-    val ticketsMethods = TicketsMethods()
+    val userTicketRequestMethods = UserTicketRequestMethods()
     val ticketsActivityViewModel : TicketsActivityViewModel = TicketsActivityViewModel
 
-    fun buyTicket(context : Context, ticket : Tickets ){
-        ticketsMethods.buyTickets(context, ticket){
+    fun buyTicket(context : Context, userTicketRequest : UserTicketRequest){
+        userTicketRequestMethods.buyTickets(context, userTicketRequest){
             ticketReturned ->
             if (ticketReturned != null) {
                 UsefulStaticMethods.showSimpleAlertDialog(context, "L'acquisto è andato a buon fine")

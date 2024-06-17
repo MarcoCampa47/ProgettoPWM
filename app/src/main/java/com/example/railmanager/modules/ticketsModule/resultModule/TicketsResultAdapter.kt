@@ -11,7 +11,6 @@ import com.example.railmanager.modules.dbModule.UsefulStaticMethods
 import com.example.railmanager.modules.dbModule.ticketsDbModule.Tickets
 import com.example.railmanager.modules.dbModule.trainDbModule.TrainDetailsRequestMethods
 import com.example.railmanager.modules.ticketsModule.TicketsActivityViewModel
-import java.time.LocalDate
 
 class TicketsResultAdapter(private val data : ArrayList<Tickets>, ticketsActivityViewModel: TicketsActivityViewModel) : RecyclerView.Adapter<TicketsResultAdapter.ViewHolder>() {
 
@@ -24,7 +23,8 @@ class TicketsResultAdapter(private val data : ArrayList<Tickets>, ticketsActivit
         val arrivalTimeTextView = view.findViewById<TextView>(R.id.endHourTextViewRvPaymentTicketsFragment)
         val trainTypeTextView = view.findViewById<TextView>(R.id.trainTypeTextViewRvPaymentTicketsFragment)
         val trainClassNumberTextView = view.findViewById<TextView>(R.id.classNumberTextViewRvPaymentTicketsFragment)
-        val ticketPriceTextView = view.findViewById<TextView>(R.id.priceTextViewRvPaymentTicketsFragment)
+        val adultsTicketPriceTextView = view.findViewById<TextView>(R.id.adultsPriceTextViewRvPaymentTicketsFragment)
+        val minorsTicketPriceTextView = view.findViewById<TextView>(R.id.minorsPriceTextViewRvPaymentTicketsFragment)
         val availableSeatsTextView = view.findViewById<TextView>(R.id.availableSeatsTextViewRvPaymentTicketsFragment)
     }
 
@@ -39,23 +39,22 @@ class TicketsResultAdapter(private val data : ArrayList<Tickets>, ticketsActivit
         val item = data[position]
         holder.departureTimeTextView.text = UsefulStaticMethods.formattaData(item.departure_time)
         holder.arrivalTimeTextView.text = UsefulStaticMethods.formattaData(item.arrival_time)
-
+        holder.trainClassNumberTextView.text = "Numero classe: " + item.class_number.toString()
         trainDetailsRequestMethods.getTrainDetails(item.train_id) { trainDetails ->
             if (trainDetails != null) {
                 holder.startLocationTextView.text = trainDetails.departure_city+","+trainDetails.departure_station
                 holder.endLocationTextView.text = trainDetails.arrival_city+","+trainDetails.arrival_station
                 holder.trainTypeTextView.text = trainDetails.train_type
-                Log.d("TrainDetails", "Train name: ${trainDetails.train_name}")
-                Log.d("TrainDetails", "Available seats: ${trainDetails.available_seats}")
+                holder.availableSeatsTextView.text = "Posti disponibili: " + trainDetails.available_seats
             } else {
                 // Gestisci il caso di errore o risposta nulla qui
                 Log.d("TrainDetails", "Failed to retrieve train details")
             }
         }
 
-        //holder.startLocationTextView.text = item.train_id
-        //holder.trainClassNumberTextView.text = item.train_class_number
-        //holder.ticketPriceTextView.text = item.ticket_price
+        holder.adultsTicketPriceTextView.text = "Prezzo adulti: "+ item.adults_price.toString()
+        holder.minorsTicketPriceTextView.text = "Prezzo minori: "+ item.minors_price.toString()
+
     }
 
 

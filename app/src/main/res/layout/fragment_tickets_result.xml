@@ -75,7 +75,7 @@
         app:layout_constraintEnd_toEndOf="@+id/constraintLayoutPaymentTickesFragment"
         app:layout_constraintStart_toStartOf="@+id/constraintLayoutPaymentTickesFragment"
         app:layout_constraintTop_toBottomOf="@+id/topBarContainerPayamentTicketsFragment"
-        tools:listitem="@layout/item_rv_payment_tickets_fragment" />
+        tools:listitem="@layout/item_rv_results_tickets_fragment" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

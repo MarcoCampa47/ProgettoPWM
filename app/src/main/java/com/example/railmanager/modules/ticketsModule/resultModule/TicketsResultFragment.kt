@@ -11,11 +11,12 @@ import androidx.navigation.fragment.navArgs
 import com.example.railmanager.R
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.railmanager.modules.dbModule.ticketsDbModule.Tickets
 import com.example.railmanager.modules.ticketsModule.TicketsActivity
 import com.example.railmanager.modules.ticketsModule.TicketsActivityViewModel
 
 
-class TicketsResultFragment : Fragment() {
+class TicketsResultFragment : Fragment(){
     private val args: TicketsResultFragmentArgs by navArgs()
     val ticketsActivityViewModel : TicketsActivityViewModel by viewModels()
 
@@ -45,7 +46,8 @@ class TicketsResultFragment : Fragment() {
         Log.d("Email utente" , originActivity.getUserEmail() )
         Log.d("Numero adulti e minori", originActivity.getAdultsAndMinorsNumber().toString())
           */
-        val adapter = TicketsResultAdapter(ArrayList(ticketsList), ticketsActivityViewModel )
+
+        val adapter = TicketsResultAdapter(this, ArrayList(ticketsList), ticketsActivityViewModel )
 
         val recyclerView : RecyclerView = view.findViewById(R.id.rvFragmentTicketsPayment)
 
@@ -53,4 +55,6 @@ class TicketsResultFragment : Fragment() {
         recyclerView.adapter = adapter
 
     }
+
+
 }

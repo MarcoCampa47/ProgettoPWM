@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.railmanager.R
+import com.example.railmanager.modules.dbModule.UsefulStaticMethods
 import com.example.railmanager.modules.ticketsModule.searchModule.TrainRoutesFragmentViewModel
 
 class TicketsActivity : AppCompatActivity() {
@@ -26,13 +27,22 @@ class TicketsActivity : AppCompatActivity() {
         }
 
         val intent = intent;
-        emailUtente = intent.getStringExtra("e-mail")
+
+        ticketsActivityViewModel.setEmail( intent.getStringExtra("e-mail")!!)
+        ticketsActivityViewModel.setIdUtente(intent.getIntExtra("idUtente",-1))
+
+        if(ticketsActivityViewModel.getIdUtente() == -1){
+            UsefulStaticMethods.showSimpleAlertDialog(this, "Errore nella fase di login")
+            finish()
+        }
+
+        Log.d("idutente", ticketsActivityViewModel.getIdUtente().toString())
 
         //N.B PER TEST, CANCELLARE DOPO
         emailUtente = "mmarkcampy@gmail.com"
 
 
-        ticketsActivityViewModel.setEmail(emailUtente!!)
+
 
 
 

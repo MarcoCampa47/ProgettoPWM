@@ -1,5 +1,5 @@
 package com.example.railmanager.modules.dbModule.userDbModule
 
 interface CheckUserCallback {
-    fun onResult(exists: Boolean)
+    fun onResult(exists: Int)
 }

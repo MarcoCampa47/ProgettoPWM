@@ -1,6 +1,5 @@
 package com.example.railmanager.modules.dbModule.userDbModule
 
-import android.app.AlertDialog
 import android.content.Context
 import android.util.Log
 import com.example.railmanager.modules.dbModule.UsefulStaticMethods
@@ -30,18 +29,18 @@ class UserMethods {
                 if(response.isSuccessful){
                     val user = response.body()
                     if(user != null && user.email == email) {
-                        callback.onResult(true)
+                        callback.onResult(user.iduser)
                     }
                     else{
                         Log.d("DEBUG", "L'utente non esiste")
-                        callback.onResult(false)
+                        callback.onResult(-1)
                     }
                 }
             }
 
             override fun onFailure(p0: Call<User>, t: Throwable) {
                 Log.d("DEBUG","Request failed with response code: ${t.message}")
-                callback.onResult(false)
+                callback.onResult(-1)
             }
 
         })
@@ -63,18 +62,18 @@ class UserMethods {
                 if(response.isSuccessful){
                     val user = response.body()
                     if(user != null && user.email == email && user.password == password) {
-                        callback.onResult(true)
+                        callback.onResult(user.iduser)
                     }
                     else{
                         Log.d("DEBUG", "Verifica che E-mail e password siano corretti")
-                        callback.onResult(false)
+                        callback.onResult(-1)
                     }
                 }
             }
 
             override fun onFailure(p0: Call<User>, t: Throwable) {
                 Log.d("DEBUG","Request failed with response code: ${t.message}")
-                callback.onResult(false)
+                callback.onResult(-1)
             }
 
         })

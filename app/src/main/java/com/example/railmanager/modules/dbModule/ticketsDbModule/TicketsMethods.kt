@@ -76,4 +76,28 @@ class TicketsMethods {
         })
     }
 
+    fun buyTickets(context: Context, ticketToBuy: Tickets, callback: (Tickets?) -> Unit){
+        val call = ticketsServiceApi.buyTickets(ticketToBuy)
+        call.enqueue(object : Callback<Tickets> {
+            override fun onResponse(call: Call<Tickets>, response: Response<Tickets>) {
+                if(response.isSuccessful){
+                    val boughtTicket = response.body()
+                    if(boughtTicket != null && boughtTicket.idticket != -1){
+                        callback(boughtTicket)
+                    }
+                    else{
+                        callback(null)
+                    }
+                }
+                else{
+                    UsefulStaticMethods.showSimpleAlertDialog(context, "Impossibile ricevere una risposta dal server")
+                }
+            }
+
+            override fun onFailure(call: Call<Tickets>, t: Throwable) {
+                UsefulStaticMethods.showSimpleAlertDialog(context, "Comunicazione col server fallita: ${t.message}")
+            }
+        })
+    }
+
 }

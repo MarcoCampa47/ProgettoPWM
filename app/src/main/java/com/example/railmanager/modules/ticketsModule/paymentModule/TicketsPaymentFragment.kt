@@ -1,5 +1,6 @@
 package com.example.railmanager.modules.ticketsModule.paymentModule
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.railmanager.R
 import com.example.railmanager.modules.dbModule.ticketsDbModule.Tickets
 import com.example.railmanager.modules.dbModule.trainDbModule.TrainDetailsRequest
+import com.example.railmanager.modules.ticketsModule.TicketsActivityViewModel
 import com.example.railmanager.modules.ticketsModule.resultModule.TicketsResultFragmentArgs
 import com.google.gson.Gson
 
@@ -18,6 +20,8 @@ import com.google.gson.Gson
 class TicketsPaymentFragment : Fragment() {
 
     private val args: TicketsPaymentFragmentArgs by navArgs()
+    val ticketsPaymentFragmentViewModel = TicketsPaymentFragmentViewModel()
+    val ticketsActivityViewModel = TicketsActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +36,7 @@ class TicketsPaymentFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_ticket_payment, container, false)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val ticket = args.ticketToBuy
@@ -46,16 +51,24 @@ class TicketsPaymentFragment : Fragment() {
         val destinationTextView : TextView = view.findViewById(R.id.destinationTextViewTicketPaymentFragment)
             destinationTextView.text = trainDetails.arrival_city + ", " + trainDetails.arrival_station
         val adultsNumberTextView: TextView = view.findViewById(R.id.adultsNumberTextViewTicketPaymentFragment)
-            adultsNumberTextView.text = ticket.adults_number.toString()
+            adultsNumberTextView.text = ticketsActivityViewModel.getAdultsNumberWhoWantsToBuy().toString()
         val minorsNumberTextView: TextView = view.findViewById(R.id.minorsNumberTextViewTicketPaymentFragment)
-            minorsNumberTextView.text = ticket.minor_number.toString()
+            minorsNumberTextView.text = ticketsActivityViewModel.getMinorsNumberWhoWantsToBuy().toString()
         val adultsPriceTextView: TextView = view.findViewById(R.id.adultsPriceTextViewTicketPaymentFragment)
             adultsPriceTextView.text = ticket.adults_price.toString()
         val minorsPriceTextView: TextView = view.findViewById(R.id.minorsPriceTextViewTicketPaymentFragment)
             minorsPriceTextView.text = ticket.minors_price.toString()
         val totalTextView: TextView = view.findViewById(R.id.totalPriceTextViewTicketPaymentFragment)
-            totalTextView.text = (ticket.adults_number * ticket.adults_price + ticket.minor_number * ticket.minors_price).toString()
+            totalTextView.text = (ticketsActivityViewModel.getAdultsNumberWhoWantsToBuy()+ ticket.adults_price + ticketsActivityViewModel.getMinorsNumberWhoWantsToBuy() * ticket.minors_price).toString()
 
+        val payButton: TextView = view.findViewById(R.id.paymentButtonTicketPaymentFragment)
+        payButton.setOnClickListener(){
+            ticket.adults_number = adultsNumberTextView.getText().toString().toShort()
+            ticket.data_purchase = "2024-06-17 18:22:11"
+            ticket.minor_number = minorsNumberTextView.getText().toString().toShort()
+            ticket.user_id = ticketsActivityViewModel.getIdUtente().toLong()
+            this.context?.let { ctx -> ticketsPaymentFragmentViewModel.buyTicket(ctx, ticket) }
+        }
     }
 
 

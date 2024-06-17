@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModel
 
 object TicketsActivityViewModel : ViewModel() {
 
+    private var idutente : Int = -1;
+
     private val _emailUtente = MutableLiveData<String>()
     val emailUtente : LiveData<String>
         get() = _emailUtente
@@ -64,5 +66,20 @@ object TicketsActivityViewModel : ViewModel() {
         return _allCitiesAndStationsHashMap.value!!
     }
 
+    fun setIdUtente(id : Int){
+     this.idutente = id;
+    }
+
+    fun getIdUtente() : Int{
+        return idutente;
+    }
+
+    fun getAdultsNumberWhoWantsToBuy() : Int{
+        return _adultsNumberWhoWantsToBuy.value!!
+    }
+
+    fun getMinorsNumberWhoWantsToBuy() : Int{
+        return _minorsNumberWhoWantsToBuy.value!!
+    }
 
 }

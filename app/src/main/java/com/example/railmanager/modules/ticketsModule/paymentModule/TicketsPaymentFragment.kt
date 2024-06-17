@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.navigation.fragment.navArgs
 import com.example.railmanager.R
 import com.example.railmanager.modules.dbModule.ticketsDbModule.Tickets
@@ -42,8 +43,18 @@ class TicketsPaymentFragment : Fragment() {
         val gson = Gson()
         val trainDetails = gson.fromJson(jsonTrainDetailsString, TrainDetailsRequest::class.java)
 
-        Log.d("Ho ricevuto questo: ", ticket.toString())
-        Log.d("ANCHE QUESTO", trainDetails.toString())
+        val destinationTextView : TextView = view.findViewById(R.id.destinationTextViewTicketPaymentFragment)
+            destinationTextView.text = trainDetails.arrival_city + ", " + trainDetails.arrival_station
+        val adultsNumberTextView: TextView = view.findViewById(R.id.adultsNumberTextViewTicketPaymentFragment)
+            adultsNumberTextView.text = ticket.adults_number.toString()
+        val minorsNumberTextView: TextView = view.findViewById(R.id.minorsNumberTextViewTicketPaymentFragment)
+            minorsNumberTextView.text = ticket.minor_number.toString()
+        val adultsPriceTextView: TextView = view.findViewById(R.id.adultsPriceTextViewTicketPaymentFragment)
+            adultsPriceTextView.text = ticket.adults_price.toString()
+        val minorsPriceTextView: TextView = view.findViewById(R.id.minorsPriceTextViewTicketPaymentFragment)
+            minorsPriceTextView.text = ticket.minors_price.toString()
+        val totalTextView: TextView = view.findViewById(R.id.totalPriceTextViewTicketPaymentFragment)
+            totalTextView.text = (ticket.adults_number * ticket.adults_price + ticket.minor_number * ticket.minors_price).toString()
     }
 
 

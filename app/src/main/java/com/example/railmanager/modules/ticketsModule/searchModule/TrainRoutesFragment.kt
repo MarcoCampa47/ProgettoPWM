@@ -90,7 +90,7 @@ class TrainRoutesFragment : Fragment() {
 
                 context?.let { context ->
                     val ticketsActivity = activity as TicketsActivity
-                    trainRoutesFragmentViewModel.search(this,  context, startPoint.text.toString(), endPoint.text.toString() , startDate.text.toString(), endDate.text.toString(), adults.text.toString(), minors.text.toString() )
+                    trainRoutesFragmentViewModel.search(this,  context, startPoint.text.toString().trim(), endPoint.text.toString().trim() , startDate.text.toString(), endDate.text.toString(), adults.text.toString(), minors.text.toString() )
                 }
             }
 

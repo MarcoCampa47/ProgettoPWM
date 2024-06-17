@@ -25,5 +25,19 @@
         <argument
             android:name="ticketsList"
             app:argType="com.example.railmanager.modules.dbModule.ticketsDbModule.Tickets[]" />
+        <action
+            android:id="@+id/action_ticketsResultFragment_to_ticketsPaymentFragment"
+            app:destination="@id/ticketsPaymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ticketsPaymentFragment"
+        android:name="com.example.railmanager.modules.ticketsModule.paymentModule.TicketsPaymentFragment"
+        android:label="TicketsPaymentFragment" >
+        <argument
+            android:name="ticketToBuy"
+            app:argType="com.example.railmanager.modules.dbModule.ticketsDbModule.Tickets" />
+        <argument
+            android:name="trainDetails"
+            app:argType="string" />
     </fragment>
 </navigation>

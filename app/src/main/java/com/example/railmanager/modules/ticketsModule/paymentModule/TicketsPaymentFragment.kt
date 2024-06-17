@@ -12,9 +12,12 @@ import androidx.navigation.fragment.navArgs
 import com.example.railmanager.R
 import com.example.railmanager.modules.dbModule.ticketsDbModule.Tickets
 import com.example.railmanager.modules.dbModule.trainDbModule.TrainDetailsRequest
+import com.example.railmanager.modules.dbModule.user_ticketDbModule.UserTicketRequest
 import com.example.railmanager.modules.ticketsModule.TicketsActivityViewModel
 import com.example.railmanager.modules.ticketsModule.resultModule.TicketsResultFragmentArgs
 import com.google.gson.Gson
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 
 class TicketsPaymentFragment : Fragment() {
@@ -63,11 +66,15 @@ class TicketsPaymentFragment : Fragment() {
 
         val payButton: TextView = view.findViewById(R.id.paymentButtonTicketPaymentFragment)
         payButton.setOnClickListener(){
-            ticket.adults_number = adultsNumberTextView.getText().toString().toShort()
-            ticket.data_purchase = "2024-06-17 18:22:11"
-            ticket.minor_number = minorsNumberTextView.getText().toString().toShort()
-            ticket.user_id = ticketsActivityViewModel.getIdUtente().toLong()
-            this.context?.let { ctx -> ticketsPaymentFragmentViewModel.buyTicket(ctx, ticket) }
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+            val userTicketRequest = UserTicketRequest(-1,
+                ticketsActivityViewModel.getIdUtente().toLong(),
+                ticket.idticket,
+                ticketsActivityViewModel.getAdultsNumberWhoWantsToBuy(),
+                ticketsActivityViewModel.getMinorsNumberWhoWantsToBuy(),
+                LocalDateTime.now().format(formatter).toString(),
+                )
+            this.context?.let { ctx -> ticketsPaymentFragmentViewModel.buyTicket(ctx, userTicketRequest) }
         }
     }
 

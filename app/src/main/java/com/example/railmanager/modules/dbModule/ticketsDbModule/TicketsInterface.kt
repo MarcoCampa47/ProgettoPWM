@@ -14,7 +14,4 @@ interface TicketsInterface {
     @POST("railmanager/tickets/search")
     fun searchTickets(@Body searchRequest: SearchRequest) : Call<List<Tickets>>
 
-    @POST("railmanager/tickets/buy")
-    fun buyTickets(@Body buyRequest: Tickets) : Call<Tickets>
-
 }

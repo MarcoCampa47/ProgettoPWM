@@ -37,10 +37,6 @@ class TicketsResultFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         val ticketsList = args.ticketsList.toList()
-        // Ora puoi utilizzare la lista di ticketsList come desideri
-        for (ticket in ticketsList) {
-            Log.d("ResultFragment", "ID: ${ticket.idticket}, Departure: ${ticket.departure_time}, Arrival: ${ticket.arrival_time}")
-        }
 
         /*val originActivity = this.activity as TicketsActivity
         Log.d("Email utente" , originActivity.getUserEmail() )

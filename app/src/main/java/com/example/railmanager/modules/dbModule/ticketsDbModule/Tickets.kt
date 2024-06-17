@@ -12,10 +12,6 @@ data class Tickets (
     val arrival_time: String ="",
     val adults_price: Double,
     val minors_price: Double,
-    var data_purchase: String = "",
-    var adults_number: Short,
-    var minor_number : Short,
-    var user_id : Long,
     val train_id : Int,
     val postiDisponibili : Int
 ) : Parcelable {
@@ -26,10 +22,6 @@ data class Tickets (
         parcel.readString() ?: "",
         parcel.readDouble(),
         parcel.readDouble(),
-        parcel.readString() ?: "",
-        parcel.readInt().toShort(),
-        parcel.readInt().toShort(),
-        parcel.readLong(),
         parcel.readInt(),
         parcel.readInt()
     )
@@ -41,10 +33,6 @@ data class Tickets (
         parcel.writeString(arrival_time)
         parcel.writeDouble(adults_price)
         parcel.writeDouble(minors_price)
-        parcel.writeString(data_purchase)
-        parcel.writeInt(adults_number.toInt())
-        parcel.writeInt(minor_number.toInt())
-        parcel.writeLong(user_id)
         parcel.writeInt(train_id)
         parcel.writeInt(postiDisponibili)
     }
@@ -68,7 +56,6 @@ fun Tickets.withDefaultValues(): Tickets {
     return this.copy(
         departure_time = this.departure_time ?: "",
         arrival_time = this.arrival_time ?: "",
-        data_purchase = this.data_purchase ?: "",
         postiDisponibili = this.postiDisponibili ?: 0
     )
 }

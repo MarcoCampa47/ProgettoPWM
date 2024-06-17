@@ -58,7 +58,6 @@ class TicketsResultAdapter(private val fragment : Fragment,
                 holder.startLocationTextView.text = trainDetails.departure_city+","+trainDetails.departure_station
                 holder.endLocationTextView.text = trainDetails.arrival_city+","+trainDetails.arrival_station
                 holder.trainTypeTextView.text = trainDetails.train_type
-                holder.availableSeatsTextView.text = "Posti disponibili: " + trainDetails.available_seats
 
                 jsonString = gson.toJson(trainDetails)
 
@@ -69,6 +68,7 @@ class TicketsResultAdapter(private val fragment : Fragment,
             }
         }
 
+        holder.availableSeatsTextView.text = "Posti disponibili: " + item.postiDisponibili
         holder.cardView.setOnClickListener{
             //Sostituisco eventuali valori a null con i valori di default, in quanto ticket è serializable e non può avere valori null
             val ticketsWithDefault = item.withDefaultValues()

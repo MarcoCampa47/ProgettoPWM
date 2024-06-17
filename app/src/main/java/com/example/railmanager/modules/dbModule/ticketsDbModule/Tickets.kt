@@ -16,7 +16,8 @@ data class Tickets (
     val adults_number: Short,
     val minor_number : Short,
     val user_id : Long,
-    val train_id : Int
+    val train_id : Int,
+    val postiDisponibili : Int
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
@@ -29,6 +30,7 @@ data class Tickets (
         parcel.readInt().toShort(),
         parcel.readInt().toShort(),
         parcel.readLong(),
+        parcel.readInt(),
         parcel.readInt()
     )
 
@@ -44,6 +46,7 @@ data class Tickets (
         parcel.writeInt(minor_number.toInt())
         parcel.writeLong(user_id)
         parcel.writeInt(train_id)
+        parcel.writeInt(postiDisponibili)
     }
 
     override fun describeContents(): Int {
@@ -65,7 +68,8 @@ fun Tickets.withDefaultValues(): Tickets {
     return this.copy(
         departure_time = this.departure_time ?: "",
         arrival_time = this.arrival_time ?: "",
-        data_purchase = this.data_purchase ?: ""
+        data_purchase = this.data_purchase ?: "",
+        postiDisponibili = this.postiDisponibili ?: 0
     )
 }
 

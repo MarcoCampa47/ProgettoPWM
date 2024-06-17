@@ -24,15 +24,15 @@ class TicketsResultAdapter(private val fragment : Fragment,
 
     class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
         val cardView = view.findViewById<View>(R.id.cardViewRvResultsTicketsFragment)
-        val startLocationTextView = view.findViewById<TextView>(R.id.startLocationTextViewRvPaymentTicketsFragment)
-        val endLocationTextView = view.findViewById<TextView>(R.id.endLocationTextViewRvPaymentTicketsFragment)
-        val departureTimeTextView = view.findViewById<TextView>(R.id.startHourTextViewRvPaymentTicketsFragment)
-        val arrivalTimeTextView = view.findViewById<TextView>(R.id.endHourTextViewRvPaymentTicketsFragment)
-        val trainTypeTextView = view.findViewById<TextView>(R.id.trainTypeTextViewRvPaymentTicketsFragment)
-        val trainClassNumberTextView = view.findViewById<TextView>(R.id.classNumberTextViewRvPaymentTicketsFragment)
-        val adultsTicketPriceTextView = view.findViewById<TextView>(R.id.adultsPriceTextViewRvPaymentTicketsFragment)
-        val minorsTicketPriceTextView = view.findViewById<TextView>(R.id.minorsPriceTextViewRvPaymentTicketsFragment)
-        val availableSeatsTextView = view.findViewById<TextView>(R.id.availableSeatsTextViewRvPaymentTicketsFragment)
+        val startLocationTextView = view.findViewById<TextView>(R.id.startLocationTextViewRvResultsTicketsFragment)
+        val endLocationTextView = view.findViewById<TextView>(R.id.endLocationTextViewRvResultsTicketsFragment)
+        val departureTimeTextView = view.findViewById<TextView>(R.id.startHourTextViewRvResultsTicketsFragment)
+        val arrivalTimeTextView = view.findViewById<TextView>(R.id.endHourTextViewRvResultsTicketsFragment)
+        val trainTypeTextView = view.findViewById<TextView>(R.id.trainTypeTextViewRvResultsTicketsFragment)
+        val trainClassNumberTextView = view.findViewById<TextView>(R.id.classNumberTextViewRvResultsTicketsFragment)
+        val adultsTicketPriceTextView = view.findViewById<TextView>(R.id.adultsPriceTextViewRvResultsTicketsFragment)
+        val minorsTicketPriceTextView = view.findViewById<TextView>(R.id.minorsPriceTextViewRvResultsTicketsFragment)
+        val availableSeatsTextView = view.findViewById<TextView>(R.id.availableSeatsTextViewRvResultsTicketsFragment)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

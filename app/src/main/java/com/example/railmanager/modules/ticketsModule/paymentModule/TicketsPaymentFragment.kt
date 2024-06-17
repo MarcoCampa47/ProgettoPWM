@@ -55,6 +55,7 @@ class TicketsPaymentFragment : Fragment() {
             minorsPriceTextView.text = ticket.minors_price.toString()
         val totalTextView: TextView = view.findViewById(R.id.totalPriceTextViewTicketPaymentFragment)
             totalTextView.text = (ticket.adults_number * ticket.adults_price + ticket.minor_number * ticket.minors_price).toString()
+
     }
 
 

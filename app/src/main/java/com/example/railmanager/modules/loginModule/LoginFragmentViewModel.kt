@@ -1,14 +1,8 @@
 package com.example.railmanager.modules.loginModule
 
-import android.app.Activity
-import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
-import com.example.railmanager.MainActivity
 import com.example.railmanager.modules.dbModule.UsefulStaticMethods
 import com.example.railmanager.modules.dbModule.userDbModule.CheckUserCallback
 import com.example.railmanager.modules.dbModule.userDbModule.UserMethods
@@ -38,15 +32,16 @@ class LoginFragmentViewModel() : ViewModel() {
     // Chiamata al metodo di controllo utente con callback
     fun checkAndLoginUser(context: Context, email: String , password : String, userMethods: UserMethods) {
         userMethods.checkIfUserExists(context, email, object : CheckUserCallback {
-            override fun onResult(exists: Boolean) {
-                if (exists) {
+            override fun onResult(exists: Int) {
+                if (exists != -1) {
                     // L'utente esiste, verifico che la password sia corretta
                     userMethods.checkIfPasswordIsCorrected(context, email, password, object : CheckUserCallback {
-                        override fun onResult(exists: Boolean) {
-                            if (exists) {
+                        override fun onResult(exists: Int) {
+                            if (exists != -1) {
                                 val intent = Intent(context, TicketsActivity::class.java)
                                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                 intent.putExtra("e-mail", email)
+                                intent.putExtra("idUtente", exists)
                                 context.startActivity(intent)
                             }
                             else{

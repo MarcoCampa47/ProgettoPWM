@@ -5,16 +5,7 @@ import android.content.Context
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.railmanager.modules.dbModule.userDbModule.CheckUserCallback
-import com.example.railmanager.modules.dbModule.userDbModule.User
-import com.example.railmanager.modules.dbModule.userDbModule.UserInterface
 import com.example.railmanager.modules.dbModule.userDbModule.UserMethods
-import okhttp3.MediaType
-import okhttp3.RequestBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.time.LocalDate
 import java.time.Period
 import java.time.format.DateTimeFormatter
@@ -61,8 +52,8 @@ class RegistrationFragmentViewModel () : ViewModel() {
     // Chiamata al metodo di controllo utente con callback
     fun checkAndRegisterUser(context: Context, name : String, surname : String, email: String , password : String, date : String, phoneNumber : String, userMethods: UserMethods) {
         userMethods.checkIfUserExists(context, email, object : CheckUserCallback {
-            override fun onResult(exists: Boolean) {
-                if (exists) {
+            override fun onResult(exists: Int) {
+                if (exists != -1) {
                     // L'utente esiste già
                     showSimpleAlertDialog(context, "Utente già registrato")
                 } else {

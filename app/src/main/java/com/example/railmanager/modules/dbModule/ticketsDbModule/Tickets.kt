@@ -12,10 +12,10 @@ data class Tickets (
     val arrival_time: String ="",
     val adults_price: Double,
     val minors_price: Double,
-    val data_purchase: String = "",
-    val adults_number: Short,
-    val minor_number : Short,
-    val user_id : Long,
+    var data_purchase: String = "",
+    var adults_number: Short,
+    var minor_number : Short,
+    var user_id : Long,
     val train_id : Int,
     val postiDisponibili : Int
 ) : Parcelable {

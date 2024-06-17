@@ -2,24 +2,24 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayoutItemRvPaymentTicketsFragment"
+    android:id="@+id/constraintLayoutItemRvResultsTicketsFragment"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/black"
-    android:layout_marginTop="15dp"
-    android:layout_gravity="center_horizontal">
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="20dp"
+    android:background="@color/black">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewRvResultsTicketsFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/itemConstraintLayoutPaymentTicketsFragment"
+            android:id="@+id/itemConstraintLayoutResultsTicketsFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -27,8 +27,8 @@
             android:padding="14dp">
 
             <TextView
-                android:id="@+id/startHourTextViewRvPaymentTicketsFragment"
-                android:layout_width="0dp"
+                android:id="@+id/startHourTextViewRvResultsTicketsFragment"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:text="00:00"
@@ -36,22 +36,22 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/startLocationTextViewRvPaymentTicketsFragment"
+                app:layout_constraintStart_toStartOf="@id/startLocationTextViewRvResultsTicketsFragment"
                 app:layout_constraintTop_toBottomOf="@id/horizontalBarrierRv" />
 
             <ImageView
-                android:id="@+id/arrowImageViewRvPaymentTicketsFragment"
+                android:id="@+id/arrowImageViewRvResultsTicketsFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="38dp"
-                app:layout_constraintStart_toEndOf="@+id/startHourTextViewRvPaymentTicketsFragment"
+                app:layout_constraintStart_toEndOf="@+id/startHourTextViewRvResultsTicketsFragment"
                 app:layout_constraintTop_toBottomOf="@id/horizontalBarrierRv"
                 app:srcCompat="@drawable/right_arrow" />
 
             <TextView
-                android:id="@+id/endHourTextViewRvPaymentTicketsFragment"
-                android:layout_width="0dp"
+                android:id="@+id/endHourTextViewRvResultsTicketsFragment"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="40dp"
@@ -59,7 +59,7 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/arrowImageViewRvPaymentTicketsFragment"
+                app:layout_constraintStart_toEndOf="@+id/arrowImageViewRvResultsTicketsFragment"
                 app:layout_constraintTop_toBottomOf="@id/horizontalBarrierRv" />
 
             <androidx.constraintlayout.widget.Barrier
@@ -67,10 +67,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:barrierDirection="bottom"
-                app:constraint_referenced_ids="startLocationTextViewRvPaymentTicketsFragment,endLocationTextViewRvPaymentTicketsFragment" />
+                app:constraint_referenced_ids="startLocationTextViewRvResultsTicketsFragment,endLocationTextViewRvResultsTicketsFragment,arrowLocationImageViewRvResultsTicketsFragment,startHourTextViewRvResultsTicketsFragment,endHourTextViewRvResultsTicketsFragment" />
 
             <TextView
-                android:id="@+id/trainTypeTextViewRvPaymentTicketsFragment"
+                android:id="@+id/trainTypeTextViewRvResultsTicketsFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -80,10 +80,10 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/startHourTextViewRvPaymentTicketsFragment" />
+                app:layout_constraintTop_toBottomOf="@+id/startHourTextViewRvResultsTicketsFragment" />
 
             <TextView
-                android:id="@+id/classNumberTextViewRvPaymentTicketsFragment"
+                android:id="@+id/classNumberTextViewRvResultsTicketsFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
@@ -92,11 +92,11 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/trainTypeTextViewRvPaymentTicketsFragment"
-                app:layout_constraintTop_toBottomOf="@id/endHourTextViewRvPaymentTicketsFragment" />
+                app:layout_constraintStart_toEndOf="@id/trainTypeTextViewRvResultsTicketsFragment"
+                app:layout_constraintTop_toBottomOf="@id/endHourTextViewRvResultsTicketsFragment" />
 
             <TextView
-                android:id="@+id/availableSeatsTextViewRvPaymentTicketsFragment"
+                android:id="@+id/availableSeatsTextViewRvResultsTicketsFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -104,11 +104,11 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/trainTypeTextViewRvPaymentTicketsFragment"
-                app:layout_constraintTop_toBottomOf="@+id/trainTypeTextViewRvPaymentTicketsFragment" />
+                app:layout_constraintStart_toStartOf="@id/trainTypeTextViewRvResultsTicketsFragment"
+                app:layout_constraintTop_toBottomOf="@+id/trainTypeTextViewRvResultsTicketsFragment" />
 
             <TextView
-                android:id="@+id/adultsPriceTextViewRvPaymentTicketsFragment"
+                android:id="@+id/adultsPriceTextViewRvResultsTicketsFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -116,13 +116,12 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/availableSeatsTextViewRvPaymentTicketsFragment"
-                app:layout_constraintTop_toBottomOf="@id/availableSeatsTextViewRvPaymentTicketsFragment"
-                tools:layout_constraintStart_toStartOf="@id/aviableSeatsTextViewRvPaymentTicketsFragment" />
+                app:layout_constraintStart_toStartOf="@id/availableSeatsTextViewRvResultsTicketsFragment"
+                app:layout_constraintTop_toBottomOf="@id/availableSeatsTextViewRvResultsTicketsFragment" />
 
             <TextView
-                android:id="@+id/startLocationTextViewRvPaymentTicketsFragment"
-                android:layout_width="0dp"
+                android:id="@+id/startLocationTextViewRvResultsTicketsFragment"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="StartLocation"
                 android:textAlignment="textEnd"
@@ -133,17 +132,19 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/arrowLocationImageViewRvPaymentTicketsFragment"
+                android:id="@+id/arrowLocationImageViewRvResultsTicketsFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                app:layout_constraintStart_toEndOf="@+id/startLocationTextViewRvPaymentTicketsFragment"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="@id/horizontalBarrierRv"
+                app:layout_constraintEnd_toStartOf="@id/endLocationTextViewRvResultsTicketsFragment"
+                app:layout_constraintStart_toEndOf="@+id/startLocationTextViewRvResultsTicketsFragment"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/right_arrow" />
 
             <TextView
-                android:id="@+id/endLocationTextViewRvPaymentTicketsFragment"
-                android:layout_width="0dp"
+                android:id="@+id/endLocationTextViewRvResultsTicketsFragment"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="EndLocation"
@@ -151,11 +152,11 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/arrowLocationImageViewRvPaymentTicketsFragment"
+                app:layout_constraintStart_toEndOf="@+id/arrowLocationImageViewRvResultsTicketsFragment"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/minorsPriceTextViewRvPaymentTicketsFragment"
+                android:id="@+id/minorsPriceTextViewRvResultsTicketsFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -163,8 +164,8 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/adultsPriceTextViewRvPaymentTicketsFragment"
-                app:layout_constraintTop_toBottomOf="@id/adultsPriceTextViewRvPaymentTicketsFragment" />
+                app:layout_constraintStart_toStartOf="@id/adultsPriceTextViewRvResultsTicketsFragment"
+                app:layout_constraintTop_toBottomOf="@id/adultsPriceTextViewRvResultsTicketsFragment" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

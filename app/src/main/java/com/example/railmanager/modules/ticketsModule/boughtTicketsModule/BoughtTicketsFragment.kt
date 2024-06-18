@@ -25,4 +25,10 @@ class BoughtTicketsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_bought_tickets, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        //val boughtTicketsFragmentAdapter = BoughtTicketsFragmentAdapter(this , )
+    }
+
 }

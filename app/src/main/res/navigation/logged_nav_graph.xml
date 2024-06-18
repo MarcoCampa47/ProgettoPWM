@@ -44,4 +44,9 @@
             android:name="trainDetails"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/boughtTicketsFragment"
+        android:name="com.example.railmanager.modules.ticketsModule.boughtTicketsModule.BoughtTicketsFragment"
+        android:label="fragment_bought_tickets"
+        tools:layout="@layout/fragment_bought_tickets" />
 </navigation>

@@ -11,7 +11,6 @@ import com.example.railmanager.modules.ticketsModule.TicketsActivityViewModel
 
 class TicketsPaymentFragmentViewModel : ViewModel() {
     val userTicketRequestMethods = UserTicketRequestMethods()
-    val ticketsActivityViewModel : TicketsActivityViewModel = TicketsActivityViewModel
 
     fun buyTicket(context : Context, userTicketRequest : UserTicketRequest){
         userTicketRequestMethods.buyTickets(context, userTicketRequest){

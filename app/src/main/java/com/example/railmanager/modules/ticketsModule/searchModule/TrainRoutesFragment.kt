@@ -1,6 +1,7 @@
 package com.example.railmanager.modules.ticketsModule.searchModule
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.icu.util.Calendar
 import android.icu.util.TimeZone
 import android.os.Bundle
@@ -20,6 +21,8 @@ import androidx.lifecycle.Observer
 import com.example.railmanager.R
 import com.example.railmanager.modules.ticketsModule.TicketsActivity
 import com.example.railmanager.modules.ticketsModule.TicketsActivityViewModel
+import com.example.railmanager.modules.ticketsModule.boughtTicketsModule.BoughtTicketsFragment
+import com.example.railmanager.modules.ticketsModule.boughtTicketsModule.BoughtTicketsFragmentViewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
@@ -165,6 +168,7 @@ class TrainRoutesFragment : Fragment() {
             }
 
         }
+
     }
 
 

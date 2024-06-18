@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.railmanager.R
 import com.example.railmanager.modules.dbModule.UsefulStaticMethods
+import com.example.railmanager.modules.dbModule.boughtDbModule.BoughtTicketsRequest
 import com.example.railmanager.modules.dbModule.searchDbModule.SearchRequest
 import com.example.railmanager.modules.ticketsModule.searchModule.TrainRoutesFragment
 import com.example.railmanager.modules.ticketsModule.searchModule.TrainRoutesFragmentDirections
@@ -74,6 +75,27 @@ class TicketsMethods {
                 UsefulStaticMethods.showSimpleAlertDialog(context, "Comunicazione col server fallita: ${t.message}")
             }
         })
+    }
+
+    fun getBoughtTicketsFromUser(context: Context, userid : Int, callback: (List<BoughtTicketsRequest>?) -> Unit) {
+
+        val call = ticketsServiceApi.getBoughtTicketsFromUser(userid)
+        call.enqueue(object : Callback<List<BoughtTicketsRequest>> {
+            override fun onResponse(call: Call<List<BoughtTicketsRequest>>, response: Response<List<BoughtTicketsRequest>>) {
+                val boughtTicketsListResponse = response.body()
+                if(response.isSuccessful){
+                    callback(boughtTicketsListResponse)
+                }
+                else{
+                    callback(null)
+                }
+            }
+
+            override fun onFailure(call: Call<List<BoughtTicketsRequest>>, t: Throwable) {
+                UsefulStaticMethods.showSimpleAlertDialog(context, "Comunicazione col server fallita: ${t.message}")
+            }
+        })
+
     }
 
 

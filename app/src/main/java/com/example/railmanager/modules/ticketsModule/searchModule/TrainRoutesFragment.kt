@@ -79,20 +79,18 @@ class TrainRoutesFragment : Fragment() {
 
         searchButton.setOnClickListener {
             this.context?.let { ct ->
-                trainRoutesFragmentViewModel.checkAllFields(
-                    ct,
-                    startDate.text.toString(),
-                    endDate.text.toString(),
-                    Integer.parseInt(adults.text.toString()),
-                    Integer.parseInt(minors.text.toString())
-                )
-
-
-                context?.let { context ->
+                if(trainRoutesFragmentViewModel.checkAllFields(
+                        ct,
+                        startDate.text.toString(),
+                        endDate.text.toString(),
+                        Integer.parseInt(adults.text.toString()),
+                        Integer.parseInt(minors.text.toString())
+                )){
                     ticketsActivityViewModel.setAdultsNumber(adults.text.toString().toInt())
                     ticketsActivityViewModel.setMinorsNumber(minors.text.toString().toInt())
-                    trainRoutesFragmentViewModel.search(this,  context, startPoint.text.toString().trim(), endPoint.text.toString().trim() , startDate.text.toString(), endDate.text.toString(), adults.text.toString(), minors.text.toString() )
+                    trainRoutesFragmentViewModel.search(this,  ct, startPoint.text.toString().trim(), endPoint.text.toString().trim() , startDate.text.toString(), endDate.text.toString(), adults.text.toString(), minors.text.toString() )
                 }
+
             }
 
 

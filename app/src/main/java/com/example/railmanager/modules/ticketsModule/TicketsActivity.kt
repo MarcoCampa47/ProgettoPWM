@@ -2,13 +2,20 @@ package com.example.railmanager.modules.ticketsModule
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.railmanager.R
 import com.example.railmanager.modules.dbModule.UsefulStaticMethods
+import com.example.railmanager.modules.dbModule.boughtDbModule.BoughtTicketsRequest
+import com.example.railmanager.modules.dbModule.ticketsDbModule.withDefaultValues
+import com.example.railmanager.modules.ticketsModule.boughtTicketsModule.BoughtTicketsFragment
+import com.example.railmanager.modules.ticketsModule.searchModule.TrainRoutesFragmentDirections
 import com.example.railmanager.modules.ticketsModule.searchModule.TrainRoutesFragmentViewModel
 
 class TicketsActivity : AppCompatActivity() {
@@ -36,11 +43,13 @@ class TicketsActivity : AppCompatActivity() {
             finish()
         }
 
-        Log.d("idutente", ticketsActivityViewModel.getIdUtente().toString())
 
-        //N.B PER TEST, CANCELLARE DOPO
-        emailUtente = "mmarkcampy@gmail.com"
+        val userInfoImageView = findViewById<ImageView>(R.id.profileSectionImageViewActivityTickets)
 
+        userInfoImageView.setOnClickListener {
+            val navController = findNavController(R.id.navHostActivityTickets)
+            navController.navigate(R.id.boughtTicketsFragment)
+        }
 
 
 

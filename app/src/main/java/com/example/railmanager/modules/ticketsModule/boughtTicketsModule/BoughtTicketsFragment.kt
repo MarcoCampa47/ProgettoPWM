@@ -1,17 +1,25 @@
 package com.example.railmanager.modules.ticketsModule.boughtTicketsModule
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.railmanager.R
+import com.example.railmanager.modules.dbModule.UsefulStaticMethods
+import com.example.railmanager.modules.dbModule.boughtDbModule.BoughtTicketsRequest
+import com.example.railmanager.modules.ticketsModule.TicketsActivityViewModel
 
 
 class BoughtTicketsFragment : Fragment() {
 
+    val ticketsActivityViewModel : TicketsActivityViewModel by viewModels()
     val boughtTicketsFragmentViewModel : BoughtTicketsFragmentViewModel by viewModels()
+    //val boughtTicketsFragmentAdapter = BoughtTicketsFragmentAdapter(this , )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,13 +40,26 @@ class BoughtTicketsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.context?.let { boughtTicketsFragmentViewModel.getBoughtTickets(it, 2) }
+
+
+        this.context?.let { boughtTicketsFragmentViewModel.getBoughtTickets(it, ticketsActivityViewModel.getIdUtente() ) {
+            listObtained -> if(listObtained.isNotEmpty()){
+                            Log.d("listObtained", "onViewCreated: $listObtained")
+                            val boughtTicketsFragmentAdapter = BoughtTicketsFragmentAdapter(this , listObtained)
+                            val recyclerView : RecyclerView = view.findViewById(R.id.rvBoughtTicketsFragment)
+
+                            recyclerView.layoutManager = LinearLayoutManager(context)
+                            recyclerView.adapter = boughtTicketsFragmentAdapter
+                            }
+                            else{
+                                this.context?.let { UsefulStaticMethods.showSimpleAlertDialog(it, "Non hai acquistato alcun biglietto") }
+                            }
+            }
+        }
+
+
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-        //val boughtTicketsFragmentAdapter = BoughtTicketsFragmentAdapter(this , )
-    }
 
 }

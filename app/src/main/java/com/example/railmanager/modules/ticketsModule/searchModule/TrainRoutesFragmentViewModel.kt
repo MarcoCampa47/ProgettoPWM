@@ -126,7 +126,6 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
             }
         } catch (ex: DateTimeParseException) {
             Log.d("TAG3", "Invalid date format")
-            null
         }
         return 1
     }
@@ -146,7 +145,22 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
         child: Int
     ) : Boolean{
 
-        if (!endDate.isEmpty()) {
+        if(startDate.isEmpty() && endDate.isEmpty()){
+            UsefulStaticMethods.showSimpleAlertDialog(
+                context,
+                "Inserire almeno la data di partenza."
+            )
+            return false
+        }
+        else if (!startDate.isEmpty() && !endDate.isEmpty()) {
+
+            if (isValidStartAndEndDate(startDate) == 0) {
+                UsefulStaticMethods.showSimpleAlertDialog(
+                    context,
+                    "La data di partenza non può essere precedente alla data di oggi."
+                )
+                return false
+            }
 
             if(isValidStartAndEndDate(endDate) == 0){
                 UsefulStaticMethods.showSimpleAlertDialog(
@@ -171,18 +185,7 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
                 )
                 return false
             }
-
-
-        } else {
-            if (isValidStartAndEndDate(startDate) == 0) {
-                UsefulStaticMethods.showSimpleAlertDialog(
-                    context,
-                    "La data di partenza non può essere precedente alla data di oggi."
-                )
-                return false
-            }
         }
-
 
         if (!isValidNumberOfPassengers(adult, child)) {
             UsefulStaticMethods.showSimpleAlertDialog(

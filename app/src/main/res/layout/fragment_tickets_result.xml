@@ -16,51 +16,17 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/startLocationTextViewPayamentTicketsFragment"
+            android:id="@+id/TopBarTextViewPayamentTicketsFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="startLocation"
+            android:text="Biglietti trovati"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="26dp"
             android:textStyle="bold"
-            android:layout_margin = "20dp"
-            app:layout_constraintBottom_toBottomOf="@+id/topBarContainerPayamentTicketsFragment"
-            app:layout_constraintEnd_toStartOf="@+id/arrowTopBarPayamentTicketsFragment"
-            app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintStart_toStartOf="@+id/topBarContainerPayamentTicketsFragment"
-            app:layout_constraintTop_toTopOf="@id/topBarContainerPayamentTicketsFragment">
-
-        </TextView>
-
-        <ImageView
-            android:id="@+id/arrowTopBarPayamentTicketsFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/right_arrow"
-            android:layout_margin = "20dp"
-            app:layout_constraintStart_toEndOf="@+id/startLocationTextViewPayamentTicketsFragment"
-            app:layout_constraintTop_toTopOf="@id/topBarContainerPayamentTicketsFragment"
-            app:layout_constraintBottom_toBottomOf="@id/topBarContainerPayamentTicketsFragment"
-            app:layout_constraintEnd_toStartOf="@id/endLocationTextViewPayamentTicketsFragment">
-
-
-
-        </ImageView>
-
-        <TextView
-            android:id="@+id/endLocationTextViewPayamentTicketsFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="endLocation"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_margin = "20dp"
-            app:layout_constraintStart_toEndOf="@+id/arrowTopBarPayamentTicketsFragment"
-            app:layout_constraintEnd_toEndOf="@id/topBarContainerPayamentTicketsFragment"
-            app:layout_constraintTop_toTopOf="@id/topBarContainerPayamentTicketsFragment"
-            app:layout_constraintBottom_toBottomOf="@id/topBarContainerPayamentTicketsFragment">
-
+            android:layout_margin="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
         </TextView>
 

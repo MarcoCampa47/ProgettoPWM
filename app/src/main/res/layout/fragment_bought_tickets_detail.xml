@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutBoughtTicketsDetailFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modules.ticketsModule.boughtTicketsModule.BoughtTicketsDetailFragment" >
+
+    <TextView
+        android:id="@+id/trainNamePlaceHolderTextViewBoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:text="Nome del treno: "
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/barrier1BoughtTicketsDetailFragment"/>
+
+    <TextView
+        android:id="@+id/trainNameTextViewBoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:text="nome"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/trainNamePlaceHolderTextViewBoughtTicketsDetailFragment"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/barrier1BoughtTicketsDetailFragment"/>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier1BoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="411dp"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="trainNamePlaceHolderTextViewBoughtTicketsDetailFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trainNameTextViewBoughtTicketsDetailFragment"/>
+
+    <TextView
+        android:id="@+id/trainTypePlaceHolderTextViewBoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginBottom="625dp"
+        android:text="Tipo treno: "
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrier1BoughtTicketsDetailFragment" />
+
+    <TextView
+        android:id="@+id/trainTypeTextViewBoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="36dp"
+        android:text="Tipo"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/trainTypePlaceHolderTextViewBoughtTicketsDetailFragment"
+        app:layout_constraintTop_toBottomOf="@+id/barrier1BoughtTicketsDetailFragment" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2BoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="trainTypePlaceHolderTextViewBoughtTicketsDetailFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trainTypeTextViewBoughtTicketsDetailFragment"/>
+
+    <TextView
+        android:id="@+id/trainStatePlaceHolderTextViewBoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="37dp"
+        android:text="Stato treno: "
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrier2BoughtTicketsDetailFragment" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier3BoughtTicketDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="411dp"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="trainStateTextViewBoughtTicketsDetailFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trainNameTextViewBoughtTicketsDetailFragment" />
+
+    <TextView
+        android:id="@+id/trainStateTextViewBoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:text="stato"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/trainStatePlaceHolderTextViewBoughtTicketsDetailFragment"
+        tools:layout_editor_absoluteY="142dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

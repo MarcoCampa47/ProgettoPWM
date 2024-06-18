@@ -20,11 +20,12 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/destinationTextViewTicketPaymentFragment"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/barrier1TicketPaymentFragment"/>
 
     <TextView
         android:id="@+id/destinationTextViewTicketPaymentFragment"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="25dp"
@@ -32,6 +33,7 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/barrier1TicketPaymentFragment"
         app:layout_constraintStart_toEndOf="@+id/destinationPlaceHolderTextViewTicketPaymentFragment"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,26 +42,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="Numero adulti: "
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/barrier2TicketPaymentFragment"
+        app:layout_constraintEnd_toStartOf="@+id/adultsNumberTextViewTicketPaymentFragment"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/destinationPlaceHolderTextViewTicketPaymentFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/barrier1TicketPaymentFragment" />
 
     <TextView
         android:id="@+id/adultsNumberTextViewTicketPaymentFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="45dp"
         android:text="0"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/barrier2TicketPaymentFragment"
         app:layout_constraintStart_toEndOf="@+id/adultsNumberPlaceHolderTextViewTicketPaymentFragment"
-        app:layout_constraintTop_toBottomOf="@+id/destinationTextViewTicketPaymentFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/barrier1TicketPaymentFragment" />
 
 
     <TextView
@@ -67,26 +72,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="Numero minorenni: "
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/barrier3TicketPaymentFragment"
+        app:layout_constraintEnd_toStartOf="@+id/minorsNumberTextViewTicketPaymentFragment"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adultsNumberPlaceHolderTextViewTicketPaymentFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/barrier2TicketPaymentFragment" />
 
     <TextView
         android:id="@+id/minorsNumberTextViewTicketPaymentFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         android:text="0"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/barrier3TicketPaymentFragment"
         app:layout_constraintStart_toEndOf="@+id/minorsNumberPlaceHolderTextViewTicketPaymentFragment"
-        app:layout_constraintTop_toBottomOf="@+id/adultsNumberTextViewTicketPaymentFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/barrier2TicketPaymentFragment" />
 
 
     <TextView
@@ -94,11 +102,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="Prezzo adulti: "
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/barrier4TicketPaymentFragment"
+        app:layout_constraintEnd_toStartOf="@+id/adultsPriceTextViewTicketPaymentFragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/minorsNumberPlaceHolderTextViewTicketPaymentFragment" />
 
@@ -107,24 +117,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         android:text="0€"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/barrier4TicketPaymentFragment"
         app:layout_constraintStart_toEndOf="@+id/adultsPricePlaceHolderTextViewTicketPaymentFragment"
-        app:layout_constraintTop_toBottomOf="@+id/minorsNumberTextViewTicketPaymentFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/barrier3TicketPaymentFragment" />
 
     <TextView
         android:id="@+id/minorsPricePlaceHolderTextViewTicketPaymentFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="Prezzo minorenni: "
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/barrier5TicketPaymentFragment"
+        app:layout_constraintEnd_toStartOf="@+id/minorsPriceTextViewTicketPaymentFragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adultsPricePlaceHolderTextViewTicketPaymentFragment" />
 
@@ -133,13 +146,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         android:text="0€"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/barrier5TicketPaymentFragment"
         app:layout_constraintStart_toEndOf="@+id/minorsPricePlaceHolderTextViewTicketPaymentFragment"
-        app:layout_constraintTop_toBottomOf="@+id/adultsPriceTextViewTicketPaymentFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/barrier4TicketPaymentFragment" />
 
 
     <TextView
@@ -153,7 +167,8 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/minorsPricePlaceHolderTextViewTicketPaymentFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/barrier5TicketPaymentFragment"
+        />
 
     <TextView
         android:id="@+id/totalPriceTextViewTicketPaymentFragment"
@@ -166,13 +181,14 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/totalPricePlaceHolderTextViewTicketPaymentFragment"
-        app:layout_constraintTop_toBottomOf="@+id/minorsPriceTextViewTicketPaymentFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/barrier5TicketPaymentFragment"
+        app:layout_constraintBottom_toTopOf="@+id/paymentButtonTicketPaymentFragment" />
 
     <Button
         android:id="@+id/paymentButtonTicketPaymentFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="50dp"
         android:text="Paga ora"
         android:textColor="@color/white"
         android:layout_marginLeft="15dp"
@@ -180,5 +196,52 @@
         android:backgroundTint="@color/blu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/totalPriceTextViewTicketPaymentFragment" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier1TicketPaymentFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="destinationPlaceHolderTextViewTicketPaymentFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/destinationTextViewTicketPaymentFragment"/>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2TicketPaymentFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="adultsNumberPlaceHolderTextViewTicketPaymentFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/adultsNumberTextViewTicketPaymentFragment"/>
+
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier3TicketPaymentFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="minorsNumberPlaceHolderTextViewTicketPaymentFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/minorsNumberPlaceHolderTextViewTicketPaymentFragment"/>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier4TicketPaymentFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="adultsPricePlaceHolderTextViewTicketPaymentFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/adultsPricePlaceHolderTextViewTicketPaymentFragment"/>
+
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier5TicketPaymentFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="minorsPricePlaceHolderTextViewTicketPaymentFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/minorsPricePlaceHolderTextViewTicketPaymentFragment"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

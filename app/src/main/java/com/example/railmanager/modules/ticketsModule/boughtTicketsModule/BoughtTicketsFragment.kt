@@ -35,4 +35,10 @@ class BoughtTicketsFragment : Fragment() {
         this.context?.let { boughtTicketsFragmentViewModel.getBoughtTickets(it, 2) }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        //val boughtTicketsFragmentAdapter = BoughtTicketsFragmentAdapter(this , )
+    }
+
 }

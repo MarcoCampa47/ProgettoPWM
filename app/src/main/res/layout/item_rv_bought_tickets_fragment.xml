@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutItemRvBoughtTicketsFragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="20dp"
+    android:background="@color/white">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewItemRvBoughtTicketsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayoutItemRvBoughtTicketsFragment"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayoutItemRvBoughtTicketsFragment"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayoutItemRvBoughtTicketsFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/itemContainerRvBoughtTicketsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radius_registration">
+
+
+
+            <ImageView
+                android:id="@+id/BoughtTicketsImageViewRvBoughtTicketsFragment"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="20dp"
+                app:srcCompat="@drawable/bought_ticket_icon"
+                app:layout_constraintTop_toTopOf="@+id/itemContainerRvBoughtTicketsFragment"
+                app:layout_constraintStart_toStartOf="@+id/itemContainerRvBoughtTicketsFragment"
+                app:layout_constraintBottom_toBottomOf="@+id/itemContainerRvBoughtTicketsFragment" />
+
+            <TextView
+                android:id="@+id/startLocationTextViewRvBoughtTicketsFragment"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="StartLocation"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintTop_toTopOf = "@+id/itemContainerRvBoughtTicketsFragment"
+                app:layout_constraintStart_toEndOf="@+id/BoughtTicketsImageViewRvBoughtTicketsFragment"
+                />
+
+            <ImageView
+                android:id="@+id/arrowRightImageViewRvBoughtTicketsFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                app:srcCompat="@drawable/arrow_right_rv_bought_tickets_fragment"
+                app:layout_constraintTop_toTopOf="@+id/itemContainerRvBoughtTicketsFragment"
+                app:layout_constraintStart_toEndOf="@+id/startLocationTextViewRvBoughtTicketsFragment"/>
+
+
+            <TextView
+                android:id="@+id/endLocationTextViewRvBoughtTicketsFragment"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="EndLocation"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintTop_toTopOf = "@+id/itemContainerRvBoughtTicketsFragment"
+                app:layout_constraintStart_toEndOf="@+id/arrowRightImageViewRvBoughtTicketsFragment"/>
+
+            <TextView
+                android:id="@+id/BoughtDateTextViewRvBoughtTicketsFragment"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:text="Data di acquisto"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="15dp"
+                app:layout_constraintTop_toBottomOf="@id/startLocationTextViewRvBoughtTicketsFragment"
+                app:layout_constraintStart_toStartOf="@+id/startLocationTextViewRvBoughtTicketsFragment" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

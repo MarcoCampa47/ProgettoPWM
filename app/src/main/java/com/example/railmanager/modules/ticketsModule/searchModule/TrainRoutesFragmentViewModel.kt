@@ -132,10 +132,10 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
     }
 
     fun isValidNumberOfPassengers(adult: Int, child: Int): Boolean {
-        if (adult + child > 0) {
+        if (adult + child > 0)
             return true
-        }
-        return false
+        else
+            return false
     }
 
     fun checkAllFields(
@@ -144,7 +144,7 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
         endDate: String,
         adult: Int,
         child: Int
-    ) {
+    ) : Boolean{
 
         if (!endDate.isEmpty()) {
 
@@ -153,7 +153,7 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
                     context,
                     "La data di arrivo non può essere precedente alla data di oggi."
                 )
-                return
+                return false
             }
 
             if (isValidDate(startDate, endDate) == -1) {
@@ -161,7 +161,7 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
                     context,
                     "Le date inserite non sono valide."
                 )
-                return
+                return false
             }
 
             if (isValidDate(startDate, endDate) == -2) {
@@ -169,7 +169,7 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
                     context,
                     "La data di partenza non può essere precedente alla data di oggi."
                 )
-                return
+                return false
             }
 
 
@@ -179,20 +179,22 @@ class TrainRoutesFragmentViewModel() : ViewModel() {
                     context,
                     "La data di partenza non può essere precedente alla data di oggi."
                 )
+                return false
             }
-
-
-
-            if (!isValidNumberOfPassengers(adult, child)) {
-                UsefulStaticMethods.showSimpleAlertDialog(
-                    context,
-                    "Il numero di passeggeri non è valido."
-                )
-                return
-            }
-
-
         }
 
+
+        if (!isValidNumberOfPassengers(adult, child)) {
+            UsefulStaticMethods.showSimpleAlertDialog(
+                context,
+                "Il numero di passeggeri non è valido."
+            )
+            return false
+        }
+
+        return true
     }
+
+
+
 }

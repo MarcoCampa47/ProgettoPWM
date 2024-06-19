@@ -13,6 +13,7 @@ data class Tickets (
     val adults_price: Double,
     val minors_price: Double,
     val train_id : Int,
+    val state_id : Short,
     val postiDisponibili : Int
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
@@ -23,6 +24,7 @@ data class Tickets (
         parcel.readDouble(),
         parcel.readDouble(),
         parcel.readInt(),
+        parcel.readInt().toShort(),
         parcel.readInt()
     )
 

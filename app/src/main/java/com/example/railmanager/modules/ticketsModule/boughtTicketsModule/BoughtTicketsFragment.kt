@@ -44,7 +44,6 @@ class BoughtTicketsFragment : Fragment() {
 
         this.context?.let { boughtTicketsFragmentViewModel.getBoughtTickets(it, ticketsActivityViewModel.getIdUtente() ) {
             listObtained -> if(listObtained.isNotEmpty()){
-                            Log.d("listObtained", "onViewCreated: $listObtained")
                             val boughtTicketsFragmentAdapter = BoughtTicketsFragmentAdapter(this , listObtained)
                             val recyclerView : RecyclerView = view.findViewById(R.id.rvBoughtTicketsFragment)
 

@@ -104,6 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:textColor = "@color/white"
                 android:backgroundTint="@color/blu"
                 android:text="Registrati ora!" />
 
@@ -114,6 +115,7 @@
                 android:layout_marginLeft="130dp"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/blu"
+                android:textColor = "@color/white"
                 android:text="Accedi" />
 
         </LinearLayout>

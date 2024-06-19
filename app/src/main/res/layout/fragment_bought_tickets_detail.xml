@@ -5,7 +5,8 @@
     android:id="@+id/constraintLayoutBoughtTicketsDetailFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".modules.ticketsModule.boughtTicketsModule.BoughtTicketsDetailFragment" >
+    tools:context=".modules.ticketsModule.boughtTicketsModule.BoughtTicketsDetailFragment"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/trainNamePlaceHolderTextViewBoughtTicketsDetailFragment"
@@ -16,6 +17,7 @@
         android:text="Nome del treno: "
         android:textSize="16sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="@+id/barrier1BoughtTicketsDetailFragment"/>
@@ -29,6 +31,7 @@
         android:text="nome"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@id/trainNamePlaceHolderTextViewBoughtTicketsDetailFragment"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="@+id/barrier1BoughtTicketsDetailFragment"/>
@@ -54,6 +57,7 @@
         android:text="Tipo treno: "
         android:textSize="16sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barrier1BoughtTicketsDetailFragment" />
 
@@ -66,6 +70,7 @@
         android:text="Tipo"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/trainTypePlaceHolderTextViewBoughtTicketsDetailFragment"
         app:layout_constraintTop_toBottomOf="@+id/barrier1BoughtTicketsDetailFragment" />
 
@@ -87,6 +92,7 @@
         android:text="Stato treno: "
         android:textSize="16sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barrier2BoughtTicketsDetailFragment" />
 
@@ -110,18 +116,22 @@
         android:text="stato"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/trainStatePlaceHolderTextViewBoughtTicketsDetailFragment"
         app:layout_constraintTop_toBottomOf="@+id/barrier2BoughtTicketsDetailFragment" />
 
     <TextView
         android:id="@+id/departureTextViewBoughtTicketsDetailFragment"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="37dp"
+        android:layout_marginEnd="36dp"
         android:text="departure"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/arrowRightBoughtTicketsDetailFragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barrier3BoughtTicketDetailFragment" />
 
@@ -138,11 +148,12 @@
 
     <TextView
         android:id="@+id/arrivalTextViewBoughtTicketsDetailFragment"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:layout_marginTop="37dp"
         android:text="arrival"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/arrowRightBoughtTicketsDetailFragment"
@@ -169,16 +180,18 @@
         android:text="Data di acquisto: "
         android:textSize="16sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barrier4BoughtTicketDetailFragment" />
 
     <TextView
         android:id="@+id/boughtDateTextViewBoughtTicketsDetailFragment"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:layout_marginTop="37dp"
         android:text="data"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/boughtDateTextViewPlaceHolderBoughtTicketsDetailFragment"
@@ -201,7 +214,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/minors_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barrier5BoughtTicketDetailFragment" />
@@ -211,8 +224,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="70dp"
         android:text="minors"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/minorsImageViewBoughtTicketsDetailFragment"
@@ -224,7 +238,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/people_icon_bought_tickets_fragment"
         app:layout_constraintStart_toEndOf="@+id/minorsNumberTextViewBoughtTicketsDetailFragment"
         app:layout_constraintTop_toBottomOf="@+id/barrier5BoughtTicketDetailFragment" />
@@ -234,8 +248,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="70dp"
         android:text="adults"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/adultsImageViewBoughtTicketsDetailFragment"
@@ -262,6 +277,7 @@
         android:text="Prezzo totale:  "
         android:textSize="16sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barrier6BoughtTicketDetailFragment" />
 
@@ -274,6 +290,7 @@
         android:text="0€"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@id/totalPriceTextViewPlaceHolderBoughtTicketsDetailFragment"
         app:layout_constraintTop_toBottomOf="@+id/barrier6BoughtTicketDetailFragment" />
 
@@ -307,6 +324,7 @@
         android:text="Cancellazione biglietto"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/deleteTicketImageViewBoughtTicketsDetailFragment"
         app:layout_constraintTop_toBottomOf="@+id/barrier7BoughtTicketDetailFragment" />
 

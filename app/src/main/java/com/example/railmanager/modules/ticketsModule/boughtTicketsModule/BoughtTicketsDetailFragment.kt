@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.railmanager.R
 import com.example.railmanager.modules.dbModule.UsefulStaticMethods
@@ -17,6 +19,7 @@ class BoughtTicketsDetailFragment : Fragment() {
 
 
     private val args: BoughtTicketsDetailFragmentArgs by navArgs()
+    val boughtTicketsDetailFragmentViewModel : BoughtTicketsDetailFragmentViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +66,11 @@ class BoughtTicketsDetailFragment : Fragment() {
             view.findViewById<TextView>(R.id.totalPriceTextViewBoughtTicketsDetailFragment)
         totalPriceTextView.text = ( ticketDetail.minors_price * ticketDetail.minors_number + ticketDetail.adults_price * ticketDetail.adults_number).toString() + "€"
 
+        val refundButtonImageView = view.findViewById<ImageView>(R.id.deleteTicketImageViewBoughtTicketsDetailFragment)
+        refundButtonImageView.setOnClickListener {
+            context?.let { ctx -> boughtTicketsDetailFragmentViewModel.refundTickets(ctx, this, ticketDetail.iduser_ticket, ticketDetail.date_purchase, ticketDetail.ticketid.toInt()) }
+
+        }
     }
 
 

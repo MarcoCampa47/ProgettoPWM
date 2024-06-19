@@ -62,7 +62,7 @@ class TicketsPaymentFragment : Fragment() {
         val minorsPriceTextView: TextView = view.findViewById(R.id.minorsPriceTextViewTicketPaymentFragment)
             minorsPriceTextView.text = ticket.minors_price.toString()
         val totalTextView: TextView = view.findViewById(R.id.totalPriceTextViewTicketPaymentFragment)
-            totalTextView.text = (ticketsActivityViewModel.getAdultsNumberWhoWantsToBuy()+ ticket.adults_price + ticketsActivityViewModel.getMinorsNumberWhoWantsToBuy() * ticket.minors_price).toString()
+            totalTextView.text = ( (ticketsActivityViewModel.getAdultsNumberWhoWantsToBuy() * ticket.adults_price) + (ticketsActivityViewModel.getMinorsNumberWhoWantsToBuy() * ticket.minors_price) ).toString()
 
         val payButton: TextView = view.findViewById(R.id.paymentButtonTicketPaymentFragment)
         payButton.setOnClickListener(){

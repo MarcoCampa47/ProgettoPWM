@@ -1,6 +1,7 @@
 package com.example.railmanager.modules.dbModule.user_ticketDbModule
 
 import android.content.Context
+import android.util.Log
 import com.example.railmanager.modules.dbModule.UsefulStaticMethods
 import com.example.railmanager.modules.dbModule.ticketsDbModule.Tickets
 import com.example.railmanager.modules.dbModule.ticketsDbModule.TicketsInterface
@@ -40,6 +41,32 @@ class UserTicketRequestMethods {
             override fun onFailure(call: Call<UserTicketRequest>, t: Throwable) {
                 UsefulStaticMethods.showSimpleAlertDialog(context, "Comunicazione col server fallita: ${t.message}")
             }
+        })
+    }
+
+    fun refundTickets(context: Context, ticketToRefund: UserTicketRequest, callback: (UserTicketRequest?) -> Unit){
+        val call = userTicketRequestApiService.refundTickets(ticketToRefund)
+        call.enqueue(object : Callback<UserTicketRequest> {
+            override fun onResponse(call: Call<UserTicketRequest>, response: Response<UserTicketRequest>) {
+                if(response.isSuccessful){
+                    val refundedTicket = response.body()
+                    if (refundedTicket != null) {
+                        if(refundedTicket.ticketid == -1)
+                            callback(refundedTicket)
+                        else
+                            callback(null)
+                        }
+                    }
+                else{
+                    UsefulStaticMethods.showSimpleAlertDialog(context, "Impossibile ricevere una risposta dal server")
+                }
+
+            }
+
+            override fun onFailure(call: Call<UserTicketRequest>, t: Throwable) {
+                UsefulStaticMethods.showSimpleAlertDialog(context, "Comunicazione col server fallita: ${t.message}")
+            }
+
         })
     }
 }

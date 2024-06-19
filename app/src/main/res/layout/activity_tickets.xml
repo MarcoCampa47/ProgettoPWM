@@ -40,7 +40,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/bottomMenuActivityTickets"
             app:layout_constraintStart_toStartOf="@+id/bottomMenuActivityTickets"
             app:layout_constraintTop_toTopOf="@+id/bottomMenuActivityTickets"
-            app:srcCompat="@drawable/user_icon" />
+            app:srcCompat="@drawable/people_icon_bought_tickets_fragment" />
 
         <ImageView
             android:id="@+id/homeImageViewActivityTickets"
@@ -52,7 +52,7 @@
             app:layout_constraintTop_toTopOf="@+id/bottomMenuActivityTickets"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/home_icon" />
+            app:srcCompat="@drawable/search_icon" />
 
         <ImageView
             android:id="@+id/ticketImageViewActivityTickets"
@@ -61,7 +61,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginEnd="20dp"
-            app:srcCompat="@drawable/ticket_icon"
+            app:srcCompat="@drawable/new_ticket_icon"
             tools:layout_editor_absoluteX="290dp"
             app:layout_constraintTop_toTopOf="@+id/bottomMenuActivityTickets"
             app:layout_constraintBottom_toBottomOf="@+id/bottomMenuActivityTickets"

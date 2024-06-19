@@ -10,8 +10,6 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class UserMethods {
     val retrofit = UsefulStaticMethods.getRetroFitInstance()
@@ -76,7 +74,7 @@ class UserMethods {
         })
     }
 
-    fun registerUser(context: Context, name : String, surname : String, email: String , password : String, date : String, phoneNumber : String) : Boolean{
+    fun registerUser(context: Context, name: String, surname: String, email: String, password: String, date: String, phoneNumber: String, callback: (Int?) -> Unit) : Boolean{
         val json = JSONObject()
         json.put("name", name)
         json.put("surname", surname)
@@ -96,18 +94,18 @@ class UserMethods {
                     if(response.isSuccessful){
                         val responseResult = response.body()
                         if(responseResult != null && responseResult.email.toBoolean()) {
-                            UsefulStaticMethods.showSimpleAlertDialog(context, "Ti sei registrato")
+                            callback(responseResult.iduser)
                             Log.d("DEBUG"," ${responseResult}")
                         }
                     }
                     else{
                         Log.d("DEBUG","Request failed with response code: ${response.code()}")
-                        UsefulStaticMethods.showSimpleAlertDialog(context, "Si è verificato un errore imprevisto")
+                        callback(null)
                     }
                 }
 
                 override fun onFailure(p0: Call<User>, p1: Throwable) {
-                    UsefulStaticMethods.showSimpleAlertDialog(context, "Si è verificato un errore imprevisto")
+                    callback(null)
                     Log.d("DEBUG","Request failed with response code: ${p1.message}" )
                 }
 

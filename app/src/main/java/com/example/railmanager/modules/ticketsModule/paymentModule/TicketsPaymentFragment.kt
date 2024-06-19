@@ -74,7 +74,7 @@ class TicketsPaymentFragment : Fragment() {
                 ticketsActivityViewModel.getMinorsNumberWhoWantsToBuy(),
                 LocalDateTime.now().format(formatter).toString(),
                 )
-            this.context?.let { ctx -> ticketsPaymentFragmentViewModel.buyTicket(ctx, userTicketRequest) }
+            this.context?.let { ctx -> ticketsPaymentFragmentViewModel.buyTicket(ctx, userTicketRequest, this) }
         }
     }
 

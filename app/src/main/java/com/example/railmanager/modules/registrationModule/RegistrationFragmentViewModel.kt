@@ -2,10 +2,13 @@ package com.example.railmanager.modules.registrationModule
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.example.railmanager.modules.dbModule.UsefulStaticMethods
 import com.example.railmanager.modules.dbModule.userDbModule.CheckUserCallback
 import com.example.railmanager.modules.dbModule.userDbModule.UserMethods
+import com.example.railmanager.modules.ticketsModule.TicketsActivity
 import java.time.LocalDate
 import java.time.Period
 import java.time.format.DateTimeFormatter
@@ -20,27 +23,27 @@ class RegistrationFragmentViewModel () : ViewModel() {
         val userMethods = UserMethods()
 
         if(!isValidNameAndSurname(name, surname)) {
-            showSimpleAlertDialog(context, "Nome e Cognome non validi")
+            UsefulStaticMethods.showSimpleAlertDialog(context, "Nome e Cognome non validi")
             return
         }
 
         if(!isValidMail(email)) {
-            showSimpleAlertDialog(context, "Email non valida")
+            UsefulStaticMethods.showSimpleAlertDialog(context, "Email non valida")
             return
         }
 
         if(!isValidPassword(password)) {
-            showSimpleAlertDialog(context, "Password non valida")
+            UsefulStaticMethods.showSimpleAlertDialog(context, "Password non valida")
             return
         }
 
         if(isValidDate(date)!! < 14) {
-            showSimpleAlertDialog(context, "Data di nascita non valida")
+            UsefulStaticMethods.showSimpleAlertDialog(context, "Data di nascita non valida")
             return
         }
 
         if(!isValidPhoneNumber(phoneNumber)) {
-            showSimpleAlertDialog(context, "Numero di telefono non valido")
+            UsefulStaticMethods.showSimpleAlertDialog(context, "Numero di telefono non valido")
             return
         }
 
@@ -51,17 +54,31 @@ class RegistrationFragmentViewModel () : ViewModel() {
 
     // Chiamata al metodo di controllo utente con callback
     fun checkAndRegisterUser(context: Context, name : String, surname : String, email: String , password : String, date : String, phoneNumber : String, userMethods: UserMethods) {
+
         userMethods.checkIfUserExists(context, email, object : CheckUserCallback {
             override fun onResult(exists: Int) {
                 if (exists != -1) {
                     // L'utente esiste già
-                    showSimpleAlertDialog(context, "Utente già registrato")
+                    UsefulStaticMethods.showSimpleAlertDialog(context, "Utente già registrato")
                 } else {
                     // L'utente non esiste, procedi con la registrazione
-                    userMethods.registerUser(context, name, surname, email, password, date, phoneNumber)
+                    userMethods.registerUser(context, name, surname, email, password, date, phoneNumber){
+                        userId -> if (userId != null) {
+                            val intent = Intent(context, TicketsActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            intent.putExtra("e-mail", email)
+                            intent.putExtra("idUtente", userId)
+                            context.startActivity(intent)
+                        }
+                        else{
+                            UsefulStaticMethods.showSimpleAlertDialog(context, "Errore durante la registrazione")
+                        }
+                    }
+
                 }
             }
         })
+
     }
 
 
@@ -107,17 +124,6 @@ class RegistrationFragmentViewModel () : ViewModel() {
         val phoneRegex = Regex("^\\+[0-9]{1,3}[0-9]{10}\$")
         return phoneRegex.matches(phone)
     }
-
-    private fun showSimpleAlertDialog(context: Context, message: String) {
-        AlertDialog.Builder(context)
-            .setMessage(message)
-            .setPositiveButton("OK") { dialog, _ ->
-                dialog.dismiss()
-            }
-            .show()
-    }
-
-
 
 
 

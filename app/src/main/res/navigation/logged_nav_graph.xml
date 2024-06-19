@@ -43,6 +43,9 @@
         <argument
             android:name="trainDetails"
             app:argType="string" />
+        <action
+            android:id="@+id/action_ticketsPaymentFragment_to_boughtTicketsFragment"
+            app:destination="@id/boughtTicketsFragment" />
     </fragment>
     <fragment
         android:id="@+id/boughtTicketsFragment"

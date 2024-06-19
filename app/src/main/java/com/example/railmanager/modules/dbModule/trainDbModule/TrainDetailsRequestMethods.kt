@@ -10,11 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class TrainDetailsRequestMethods {
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.1.58:9000")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
+    val retrofit = UsefulStaticMethods.getRetroFitInstance()
     private val trainDetailsRequestApiService = retrofit.create(TrainDetailsRequestInterface::class.java)
 
     fun getTrainDetails(trainNumber: Int, callback: (TrainDetailsRequest?) -> Unit){

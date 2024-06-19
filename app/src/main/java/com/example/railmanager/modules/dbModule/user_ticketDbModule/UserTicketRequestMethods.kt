@@ -13,10 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class UserTicketRequestMethods {
 
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.1.58:9000")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    val retrofit = UsefulStaticMethods.getRetroFitInstance()
 
     val userTicketRequestApiService = retrofit.create(UserTicketRequestInterface::class.java)
 

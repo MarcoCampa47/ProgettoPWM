@@ -2,6 +2,8 @@ package com.example.railmanager.modules.dbModule
 
 import android.app.AlertDialog
 import android.content.Context
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZonedDateTime
@@ -82,6 +84,14 @@ class UsefulStaticMethods {
             }
 
             return resultMap
+        }
+
+        fun getRetroFitInstance() : Retrofit {
+             val retrofit = Retrofit.Builder()
+                .baseUrl("http://192.168.1.58:9000")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            return retrofit
         }
 
     }

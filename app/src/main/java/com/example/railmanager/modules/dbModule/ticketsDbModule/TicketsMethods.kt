@@ -20,11 +20,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 class TicketsMethods {
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.1.58:9000")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
+    val retrofit = UsefulStaticMethods.getRetroFitInstance()
     val ticketsServiceApi = retrofit.create(TicketsInterface::class.java)
 
     fun runSearch(fragment: Fragment, context: Context, searchRequest: SearchRequest){

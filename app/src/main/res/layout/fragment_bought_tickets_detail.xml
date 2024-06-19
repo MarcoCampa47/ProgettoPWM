@@ -96,21 +96,219 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="411dp"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="trainStateTextViewBoughtTicketsDetailFragment"
+        app:constraint_referenced_ids="trainStatePlaceHolderTextViewBoughtTicketsDetailFragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trainNameTextViewBoughtTicketsDetailFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/trainStateTextViewBoughtTicketsDetailFragment" />
 
     <TextView
         android:id="@+id/trainStateTextViewBoughtTicketsDetailFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
+        android:layout_marginTop="37dp"
         android:text="stato"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/trainStatePlaceHolderTextViewBoughtTicketsDetailFragment"
-        tools:layout_editor_absoluteY="142dp" />
+        app:layout_constraintTop_toBottomOf="@+id/barrier2BoughtTicketsDetailFragment" />
+
+    <TextView
+        android:id="@+id/departureTextViewBoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="37dp"
+        android:text="departure"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrier3BoughtTicketDetailFragment" />
+
+    <ImageView
+        android:id="@+id/arrowRightBoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="37dp"
+        android:src="@drawable/arrow_right_rv_bought_tickets_fragment"
+        app:layout_constraintStart_toEndOf="@+id/departureTextViewBoughtTicketsDetailFragment"
+        app:layout_constraintTop_toBottomOf="@+id/barrier3BoughtTicketDetailFragment" />
+
+
+    <TextView
+        android:id="@+id/arrivalTextViewBoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="37dp"
+        android:text="arrival"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/arrowRightBoughtTicketsDetailFragment"
+        app:layout_constraintTop_toBottomOf="@+id/barrier3BoughtTicketDetailFragment" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier4BoughtTicketDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="411dp"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="departureTextViewBoughtTicketsDetailFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/departureTextViewBoughtTicketsDetailFragment"/>
+
+
+    <TextView
+        android:id="@+id/boughtDateTextViewPlaceHolderBoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="37dp"
+        android:text="Data di acquisto: "
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrier4BoughtTicketDetailFragment" />
+
+    <TextView
+        android:id="@+id/boughtDateTextViewBoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="37dp"
+        android:text="data "
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/boughtDateTextViewPlaceHolderBoughtTicketsDetailFragment"
+        app:layout_constraintTop_toBottomOf="@+id/barrier4BoughtTicketDetailFragment" />
+
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier5BoughtTicketDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="411dp"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="boughtDateTextViewPlaceHolderBoughtTicketsDetailFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boughtDateTextViewPlaceHolderBoughtTicketsDetailFragment"/>
+
+    <ImageView
+        android:id="@+id/minorsImageViewBoughtTicketsDetailFragment"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="37dp"
+        android:src="@drawable/minors_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrier5BoughtTicketDetailFragment" />
+
+    <TextView
+        android:id="@+id/minorsNumberTextViewBoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="45dp"
+        android:text="minors"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/minorsImageViewBoughtTicketsDetailFragment"
+        app:layout_constraintTop_toBottomOf="@+id/barrier5BoughtTicketDetailFragment" />
+
+
+    <ImageView
+        android:id="@+id/adultsImageViewBoughtTicketsDetailFragment"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="37dp"
+        android:src="@drawable/people_icon_bought_tickets_fragment"
+        app:layout_constraintStart_toEndOf="@+id/minorsNumberTextViewBoughtTicketsDetailFragment"
+        app:layout_constraintTop_toBottomOf="@+id/barrier5BoughtTicketDetailFragment" />
+
+    <TextView
+        android:id="@+id/adultsNumberTextViewBoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="45dp"
+        android:text="adults"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/adultsImageViewBoughtTicketsDetailFragment"
+        app:layout_constraintTop_toBottomOf="@+id/barrier5BoughtTicketDetailFragment" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier6BoughtTicketDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="411dp"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="minorsImageViewBoughtTicketsDetailFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minorsImageViewBoughtTicketsDetailFragment"/>
+
+
+    <TextView
+        android:id="@+id/totalPriceTextViewPlaceHolderBoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="37dp"
+        android:text="Prezzo totale:  "
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrier6BoughtTicketDetailFragment" />
+
+    <TextView
+        android:id="@+id/totalPriceTextViewBoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="37dp"
+        android:text="0€"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/totalPriceTextViewPlaceHolderBoughtTicketsDetailFragment"
+        app:layout_constraintTop_toBottomOf="@+id/barrier6BoughtTicketDetailFragment" />
+
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier7BoughtTicketDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="411dp"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="totalPriceTextViewPlaceHolderBoughtTicketsDetailFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalPriceTextViewPlaceHolderBoughtTicketsDetailFragment"/>
+
+    <ImageView
+        android:id="@+id/deleteTicketImageViewBoughtTicketsDetailFragment"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/delete_icon"
+        app:layout_constraintStart_toStartOf="@+id/totalPriceTextViewPlaceHolderBoughtTicketsDetailFragment"
+        app:layout_constraintTop_toBottomOf="@+id/totalPriceTextViewPlaceHolderBoughtTicketsDetailFragment" />
+
+    <TextView
+        android:id="@+id/deleteTicketTextViewBoughtTicketsDetailFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="45dp"
+        android:text="elimina biglietto"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/deleteTicketImageViewBoughtTicketsDetailFragment"
+        app:layout_constraintTop_toBottomOf="@+id/barrier7BoughtTicketDetailFragment" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

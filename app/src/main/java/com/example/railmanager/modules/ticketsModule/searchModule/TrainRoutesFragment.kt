@@ -57,6 +57,7 @@ class TrainRoutesFragment : Fragment() {
 
         val startPoint = view.findViewById<AutoCompleteTextView>(R.id.startPointAutoCompTrainRoutesFragment)
         val endPoint = view.findViewById<AutoCompleteTextView>(R.id.endPointAutoCompTrainRoutesFragment)
+        val deleteEndDateButton = view.findViewById<ImageView>(R.id.deleteDataImageViewTrainRoutesFragment)
 
         this.context?.let {
             trainRoutesFragmentViewModel.getAutoCompleteAdapterAllCities(it) { adapter ->
@@ -76,6 +77,10 @@ class TrainRoutesFragment : Fragment() {
         }
         endDate.setOnClickListener {
             openCalendar(R.id.EndEditTextDateTrainRoutesFragment)
+        }
+
+        deleteEndDateButton.setOnClickListener {
+            endDate.setText("")
         }
 
 

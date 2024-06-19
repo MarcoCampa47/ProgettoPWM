@@ -14,10 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class UserMethods {
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.1.58:9000")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    val retrofit = UsefulStaticMethods.getRetroFitInstance()
 
     val userApiService = retrofit.create(UserInterface::class.java)
     fun checkIfUserExists(context: Context, email : String, callback: CheckUserCallback){

@@ -36,7 +36,7 @@ class BoughtTicketsFragmentAdapter(fragment: Fragment , val data : List<BoughtTi
         }
         holder.startLocationTextView.text = item.departure_city_name + ", " + item.departure_station_name
         holder.endLocationTextView.text = item.arrival_city_name + ", " + item.arrival_station_name
-        holder.dataPurchaseTextView.text =  UsefulStaticMethods.formattaData(item.date_purchase)
+        holder.dataPurchaseTextView.text =  "Data acquisto: " + UsefulStaticMethods.formattaData(item.date_purchase)
 
     }
 }

@@ -1,6 +1,7 @@
 package com.example.railmanager.modules.ticketsModule
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -29,6 +30,8 @@ class TicketsActivity : AppCompatActivity() {
 
         ticketsActivityViewModel.setEmail( intent.getStringExtra("e-mail")!!)
         ticketsActivityViewModel.setIdUtente(intent.getIntExtra("idUtente",-1))
+
+        Log.d("idutente", ticketsActivityViewModel.getIdUtente().toString())
 
         if(ticketsActivityViewModel.getIdUtente() == -1){
             UsefulStaticMethods.showSimpleAlertDialog(this, "Errore nella fase di login")

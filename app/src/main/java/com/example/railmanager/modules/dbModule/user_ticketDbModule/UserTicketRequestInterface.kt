@@ -8,4 +8,7 @@ import retrofit2.http.POST
 interface UserTicketRequestInterface {
     @POST("railmanager/tickets/buy")
     fun buyTickets(@Body buyRequest: UserTicketRequest) : Call<UserTicketRequest>
+
+    @POST("railmanager/tickets/refund")
+    fun refundTickets(@Body refundRequest: UserTicketRequest) : Call<UserTicketRequest>
 }

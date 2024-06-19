@@ -65,5 +65,12 @@
         <argument
             android:name="boughtTicket"
             app:argType="com.example.railmanager.modules.dbModule.boughtDbModule.BoughtTicketsRequest" />
+        <action
+            android:id="@+id/action_boughtTicketsDetailFragment_to_boughtTicketsFragment"
+            app:destination="@id/boughtTicketsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 </navigation>

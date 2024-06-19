@@ -6,6 +6,7 @@ import android.os.Parcel
 
 data class BoughtTicketsRequest(
     val iduser_ticket: Long,
+    val ticketid : Long,
     val train_name: String,
     val train_type: String,
     val idstate: Int,
@@ -26,6 +27,7 @@ data class BoughtTicketsRequest(
     val minors_price: Double
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readLong(),
         parcel.readLong(),
         parcel.readString() ?: "",
         parcel.readString() ?: "",

@@ -133,7 +133,7 @@
             android:id="@+id/deleteDataImageViewTrainRoutesFragment"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="320dp"
+            android:layout_marginLeft="310dp"
             android:layout_marginBottom="10dp"
             android:src="@drawable/delete_date_icon" />
 

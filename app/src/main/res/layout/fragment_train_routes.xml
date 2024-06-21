@@ -157,52 +157,54 @@
         android:id="@+id/AdultContainerLayoutTrainRoutesFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
         android:background="@drawable/radius_registration"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passengerTextViewTrainRouteFragment">
 
         <TextView
             android:id="@+id/AdultTextViewTrainRouteFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adulti:"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Adulti:"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/plusAdultImageViewTrainRouteFragment"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/plus_icon"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="80dp"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/plus_icon" />
 
         <TextView
             android:id="@+id/NumberOfAdultsTextViewTrainRoutesFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="15dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="1"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/minusAdultImageViewTrainRouteFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/minus_icon"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="15dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/minus_icon" />
 
     </LinearLayout>
 
@@ -210,52 +212,54 @@
         android:id="@+id/minorsContainerLayoutTrainRoutesFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
         android:background="@drawable/radius_registration"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AdultContainerLayoutTrainRoutesFragment">
 
         <TextView
             android:id="@+id/minorsTextViewTrainRouteFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Minorenni:"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Minorenni:"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/plusMinorsImageViewTrainRouteFragment"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/plus_icon"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="40dp"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/plus_icon" />
 
         <TextView
             android:id="@+id/NumberOfMinorsTextViewTrainRoutesFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="15dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="1"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/minusMinorsImageViewTrainRouteFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/minus_icon"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="15dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/minus_icon" />
 
     </LinearLayout>
 
